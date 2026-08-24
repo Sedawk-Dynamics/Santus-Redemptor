@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, Code2, Film, BookOpen } from 'lucide-react'
 
@@ -20,6 +21,8 @@ const projects = [
       'Subscriber management and access control',
       'Editorial content management backend',
     ],
+    image: 'https://img.freepik.com/premium-photo/software-development-lifecycle-diagram-showing-stages-from-planning-deployment_995578-16683.jpg?w=2000',
+    alt: 'Software development lifecycle diagram showing stages from planning to deployment',
     status: 'LIVE',
     link: 'redemptio.app',
   },
@@ -37,6 +40,8 @@ const projects = [
       'Assessment engine and certification workflow',
       'Integration with Liguori content ecosystem',
     ],
+    image: 'https://www.blendmylearning.com/wp-content/uploads/2024/05/learning-management-systems.jpg',
+    alt: 'Learning management system interface used for online courses',
     status: 'IN DEVELOPMENT',
     link: 'redacamy.org',
   },
@@ -54,6 +59,8 @@ const projects = [
       'Quality control and press approval',
       'Sales coordination and distribution',
     ],
+    image: 'https://hrf.org/wp-content/uploads/2025/07/latest_web_header_-hrf_ai_program_in_business_insider__-_v1_720.png',
+    alt: 'HRF program feature banner',
     status: 'ONGOING',
     link: null,
   },
@@ -86,9 +93,22 @@ function ProjectCard({ project: proj, index }: { project: typeof projects[0]; in
       className={`group relative overflow-hidden transition-all duration-500 border-b border-ink-faint/40 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
     >
       <div className="py-10 md:py-12">
-        <div className="grid lg:grid-cols-12 gap-8">
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          {/* Project image — alternates side for rhythm */}
+          <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm border border-gold/25">
+              <Image
+                src={proj.image}
+                alt={proj.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
           {/* Left */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-4">
             <div className="flex items-center gap-4 mb-5">
               <div className="flex items-center justify-center w-9 h-9 shrink-0 border border-gold/45 bg-surface/50 text-gold group-hover:border-gold group-hover:text-gold transition-all duration-300">
                 <proj.icon className="w-4 h-4" />
@@ -104,7 +124,7 @@ function ProjectCard({ project: proj, index }: { project: typeof projects[0]; in
           </div>
 
           {/* Right */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <ul className="space-y-2.5 mb-8">
               {proj.bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5 text-ink-muted/80" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
