@@ -42,9 +42,9 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 56 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >{children}</motion.div>
   )
 }
@@ -55,24 +55,24 @@ export function WhyUs() {
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full opacity-60"
-          style={{ background: 'radial-gradient(circle, rgba(180,145,60,0.08) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(212,167,44,0.08) 0%, transparent 70%)' }} />
         <div className="absolute bottom-1/3 left-0 w-64 h-64 rounded-full opacity-60"
-          style={{ background: 'radial-gradient(circle, rgba(122,35,49,0.06) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(168,27,45,0.06) 0%, transparent 70%)' }} />
       </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="grid lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-5">
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">
                 <div className="section-line" />
-                <span className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Why Choose Us</span>
+                <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Why Choose Us</span>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="text-5xl md:text-6xl font-light leading-[1.05] text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
                 What Sets Us{' '}
                 <em className="gold-shimmer not-italic">Apart.</em>
               </h2>
@@ -80,7 +80,7 @@ export function WhyUs() {
           </div>
           <div className="lg:col-span-7 lg:pt-20">
             <FadeUp delay={0.15}>
-              <p className="text-ink-muted/55 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 We are not a generalist agency. Our integrated model, sector depth, and values-driven approach distinguish us from vendors who simply execute briefs.
               </p>
             </FadeUp>
@@ -94,7 +94,7 @@ export function WhyUs() {
             return (
               <FadeUp key={r.num} delay={i * 0.08}>
                 <motion.div
-                  whileHover={{ backgroundColor: 'rgba(230,217,190,0.7)' }}
+                  whileHover={{ backgroundColor: 'rgba(238,221,186,0.7)' }}
                   className="group relative p-8 bg-surface/40 transition-all duration-300"
                 >
                   {/* Top row */}
@@ -102,14 +102,14 @@ export function WhyUs() {
                     <div className="p-2.5 bg-crimson/10 text-crimson/80 group-hover:bg-gold/10 group-hover:text-gold transition-all duration-300">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <span className="text-3xl font-light text-ink-faint/10 select-none" style={{ fontFamily: 'var(--font-sans)' }}>{r.num}</span>
+                    <span className="text-3xl font-semibold text-ink-faint/10 select-none" style={{ fontFamily: 'var(--font-sans)' }}>{r.num}</span>
                   </div>
-                  <h3 className="text-lg font-light text-ink mb-3 leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{r.title}</h3>
-                  <p className="text-ink-muted/50 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}>{r.desc}</p>
+                  <h3 className="text-lg font-semibold text-ink mb-3 leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{r.title}</h3>
+                  <p className="text-ink-muted/80 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>{r.desc}</p>
 
                   {/* Hover glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: 'radial-gradient(circle at 50% 0%, rgba(180,145,60,0.08) 0%, transparent 60%)' }} />
+                    style={{ background: 'radial-gradient(circle at 50% 0%, rgba(212,167,44,0.08) 0%, transparent 60%)' }} />
                 </motion.div>
               </FadeUp>
             )

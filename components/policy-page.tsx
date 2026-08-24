@@ -6,8 +6,8 @@ import { Footer } from '@/components/footer'
 
 export function PolicyHeader() {
   return (
-    <header className="border-b border-ink-faint/10 bg-void">
-      <div className="max-w-3xl mx-auto px-6 lg:px-0 h-20 flex items-center justify-between">
+    <header className="border-b border-ink-faint/35 bg-void">
+      <div className="max-w-4xl mx-auto px-6 lg:px-0 h-20 flex items-center justify-between">
         <Link href="/" aria-label="Sanctus Redemptor Home" className="flex items-center gap-3">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sanctus%20Redemptor%20Png-2D8YUy0ali8CG4y6gJ6J2cj9AdE93J.png"
@@ -19,7 +19,7 @@ export function PolicyHeader() {
         </Link>
         <Link
           href="/"
-          className="group flex items-center gap-2 text-xs font-medium tracking-[0.12em] uppercase text-ink-muted hover:text-crimson transition-colors"
+          className="group flex items-center gap-2 text-sm font-medium tracking-[0.12em] uppercase text-ink-muted hover:text-crimson transition-colors"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
@@ -47,9 +47,9 @@ export function PolicyPage({
     <div className="bg-void min-h-screen">
       <PolicyHeader />
 
-      <main className="max-w-3xl mx-auto px-6 lg:px-0 py-16 lg:py-24">
+      <main className="max-w-4xl mx-auto px-6 lg:px-0 py-16 lg:py-24">
         <span
-          className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold"
+          className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           {eyebrow}
@@ -61,7 +61,7 @@ export function PolicyPage({
           {title}
         </h1>
         {updated && (
-          <p className="mt-4 text-xs text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="mt-4 text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
             Last updated: {updated}
           </p>
         )}
@@ -69,7 +69,7 @@ export function PolicyPage({
         {intro && (
           <p
             className="text-ink-muted leading-relaxed mb-10"
-            style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}
+            style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}
           >
             {intro}
           </p>
@@ -100,7 +100,7 @@ export function PolicySection({
       </h2>
       <div
         className="text-ink-muted leading-relaxed space-y-3"
-        style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}
+        style={{ fontFamily: 'var(--font-body)', fontSize: '1.02rem' }}
       >
         {children}
       </div>

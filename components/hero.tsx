@@ -40,7 +40,7 @@ export function Hero() {
         style={{ opacity: fadeOut }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 z-20"
       >
-        <span className="text-[0.58rem] tracking-[0.35em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Scroll</span>
+        <span className="text-[0.7rem] tracking-[0.35em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Scroll</span>
         <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.6, repeat: Infinity }}>
           <ChevronDown className="w-3.5 h-3.5" />
         </motion.div>

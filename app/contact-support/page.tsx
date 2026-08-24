@@ -33,7 +33,7 @@ export default function ContactSupportPage() {
             <d.Icon className="w-4 h-4 text-gold-dark shrink-0 mt-0.5" />
             <div>
               <p
-                className="text-[0.62rem] tracking-[0.18em] uppercase text-gold-dark font-bold mb-1"
+                className="text-[0.74rem] tracking-[0.18em] uppercase text-gold-dark font-bold mb-1"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 {d.label}
@@ -42,12 +42,12 @@ export default function ContactSupportPage() {
                 <a
                   href={d.href}
                   className="text-ink hover:text-crimson transition-colors"
-                  style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}
+                  style={{ fontFamily: 'var(--font-body)', fontSize: '1.02rem' }}
                 >
                   {d.value}
                 </a>
               ) : (
-                <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.88rem' }}>
+                <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}>
                   {d.value}
                 </p>
               )}

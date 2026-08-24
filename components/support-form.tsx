@@ -42,12 +42,12 @@ export function SupportForm() {
 
   if (submitted) {
     return (
-      <div className="border border-gold/20 bg-surface p-10 flex flex-col items-center text-center gap-4">
+      <div className="border border-gold/40 bg-surface p-10 flex flex-col items-center text-center gap-4">
         <CheckCircle2 className="w-8 h-8 text-crimson" />
         <h3 className="text-xl font-medium text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
           Your request has been received
         </h3>
-        <p className="text-sm text-ink-muted max-w-md" style={{ fontFamily: 'var(--font-body)' }}>
+        <p className="text-base text-ink-muted max-w-md" style={{ fontFamily: 'var(--font-body)' }}>
           Our team will get back to you at the email address you provided. For urgent matters, call{' '}
           <a href="tel:+917625088502" className="text-crimson hover:text-crimson-light underline underline-offset-2">
             +91 7625088502
@@ -59,7 +59,7 @@ export function SupportForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="border border-ink-faint/10 bg-surface p-6 sm:p-10">
+    <form onSubmit={handleSubmit} className="border border-ink-faint/35 bg-surface p-6 sm:p-10">
       <FieldGroup>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field>
@@ -116,7 +116,7 @@ export function SupportForm() {
         <Button
           type="submit"
           disabled={submitting}
-          className="bg-crimson text-void hover:bg-crimson-light rounded-none tracking-[0.1em] uppercase text-xs h-11 mt-2 w-full sm:w-auto sm:px-8"
+          className="bg-crimson text-void hover:bg-crimson-light rounded-none tracking-[0.1em] uppercase text-sm h-11 mt-2 w-full sm:w-auto sm:px-8"
         >
           {submitting ? 'Sending…' : 'Send Message'}
           <Send data-icon="inline-end" />

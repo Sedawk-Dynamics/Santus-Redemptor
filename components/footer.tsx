@@ -74,10 +74,10 @@ export function Footer() {
       {/* bg glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-          style={{ background: 'radial-gradient(circle, #B4913C 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, #D4A72C 0%, transparent 70%)' }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Main content */}
         <div className="py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
           {/* Brand */}
@@ -89,7 +89,7 @@ export function Footer() {
               height={55}
               className="h-10 w-auto object-contain mb-5 opacity-90"
             />
-            <p className="text-ink-muted leading-relaxed mb-8" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}>
+            <p className="text-ink-muted leading-relaxed mb-8" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>
               Bringing Technology to Life and Truth. A Bangalore-based technology, media, and publishing company serving India and internationally.
             </p>
             <div className="flex items-center gap-3">
@@ -97,8 +97,8 @@ export function Footer() {
                 <motion.a
                   key={s.label}
                   href={s.href}
-                  whileHover={{ y: -3 }}
-                  className="w-8 h-8 border border-ink-faint/20 flex items-center justify-center text-ink-muted/30 hover:text-gold hover:border-gold/30 transition-all duration-200"
+                  whileHover={{ y: -6, scale: 1.06 }}
+                  className="w-8 h-8 border border-ink-faint/40 flex items-center justify-center text-ink-muted/90 hover:text-gold hover:border-gold/50 transition-all duration-200"
                   aria-label={s.label}
                 >
                   <s.Icon className="w-3 h-3" />
@@ -109,13 +109,13 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-[0.6rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Quick Links</h4>
+            <h4 className="text-[0.72rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.label}>
                   <a href={l.href}
                     className="group flex items-center gap-1.5 text-ink-muted hover:text-ink transition-colors"
-                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}
+                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}
                   >
                     <span className="w-0 h-px bg-gold group-hover:w-3 transition-all duration-200" />
                     {l.label}
@@ -127,18 +127,18 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-[0.6rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Services</h4>
+            <h4 className="text-[0.72rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Services</h4>
             <ul className="space-y-3">
               {serviceLinks.map((l) => (
                 <li key={l.label}>
                   <a href={l.href}
                     className="group flex items-center gap-2 text-ink-muted hover:text-ink transition-colors"
-                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}
+                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}
                   >
                     <span className="w-0 h-px bg-gold group-hover:w-3 transition-all duration-200" />
                     {l.label}
                     {l.soon && (
-                      <span className="text-[0.55rem] tracking-widest uppercase border border-gold/30 text-gold-dark font-bold px-1.5 py-0.5 ml-1" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
+                      <span className="text-[0.55rem] tracking-widest uppercase border border-gold/50 text-gold-dark font-bold px-1.5 py-0.5 ml-1" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
                     )}
                   </a>
                 </li>
@@ -148,13 +148,13 @@ export function Footer() {
 
           {/* Policies */}
           <div>
-            <h4 className="text-[0.6rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Policies</h4>
+            <h4 className="text-[0.72rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Policies</h4>
             <ul className="space-y-3">
               {policyLinks.map((l) => (
                 <li key={l.label}>
                   <a href={l.href}
                     className="group flex items-center gap-1.5 text-ink-muted hover:text-ink transition-colors"
-                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}
+                    style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}
                   >
                     <span className="w-0 h-px bg-gold group-hover:w-3 transition-all duration-200" />
                     {l.label}
@@ -166,19 +166,19 @@ export function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="text-[0.6rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Connect</h4>
+            <h4 className="text-[0.72rem] tracking-[0.22em] uppercase text-gold-dark font-bold mb-6" style={{ fontFamily: 'var(--font-body)' }}>Connect</h4>
             <div className="space-y-5">
               <div>
-                <p className="text-[0.6rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Email</p>
-                <a href="mailto:office@srplblr.com" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}>office@srplblr.com</a>
+                <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Email</p>
+                <a href="mailto:office@srplblr.com" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>office@srplblr.com</a>
               </div>
               <div>
-                <p className="text-[0.6rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Phone</p>
-                <a href="tel:+917625088502" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}>+91 7625088502</a>
+                <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Phone</p>
+                <a href="tel:+917625088502" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>+91 7625088502</a>
               </div>
               <div>
-                <p className="text-[0.6rem] text-ink-muted font-bold tracking-wide mb-1" style={{ fontFamily: 'var(--font-body)' }}>Address</p>
-                <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}>
+                <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-1" style={{ fontFamily: 'var(--font-body)' }}>Address</p>
+                <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>
                   No. 9/1, Clarke Road,<br />
                   Richards Town, Bengaluru – 560084<br />
                   Karnataka, India
@@ -186,7 +186,7 @@ export function Footer() {
               </div>
               <a
                 href="/contact-support"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 border border-gold/30 text-gold-dark text-[0.68rem] font-bold tracking-[0.1em] uppercase hover:bg-gold hover:text-void hover:border-gold transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 border border-gold/50 text-gold-dark text-[0.68rem] font-bold tracking-[0.1em] uppercase hover:bg-gold hover:text-void hover:border-gold transition-all duration-200"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Contact Support
@@ -197,15 +197,15 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-8 border-t border-ink-faint/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem' }}>
+        <div className="py-8 border-t border-ink-faint/35 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>
             &copy; 2026 Sanctus Redemptor Private Limited. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem' }}>CIN: U82990KA2025PTC203720</p>
-            <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem' }}>GSTIN: 29ABQCS4225H1ZX</p>
-            <a href="/privacy-policy" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem' }}>Privacy Policy</a>
-            <a href="/terms" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem' }}>Terms of Use</a>
+            <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>CIN: U82990KA2025PTC203720</p>
+            <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>GSTIN: 29ABQCS4225H1ZX</p>
+            <a href="/privacy-policy" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>Privacy Policy</a>
+            <a href="/terms" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>Terms of Use</a>
           </div>
         </div>
       </div>

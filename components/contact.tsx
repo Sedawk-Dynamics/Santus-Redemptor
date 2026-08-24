@@ -9,9 +9,9 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 56 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >{children}</motion.div>
   )
 }
@@ -35,27 +35,27 @@ export function Contact() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
         <div className="absolute top-0 right-0 w-96 h-96"
-          style={{ background: 'radial-gradient(circle at top right, rgba(122,35,49,0.06) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle at top right, rgba(168,27,45,0.06) 0%, transparent 70%)' }} />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           {/* Left info */}
           <div className="lg:col-span-5">
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">
                 <div className="section-line" />
-                <span className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Contact</span>
+                <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Contact</span>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="text-5xl md:text-6xl font-light leading-[1.05] text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
                 Reach out{' '}
                 <em className="text-gradient not-italic">to us.</em>
               </h2>
             </FadeUp>
             <FadeUp delay={0.15}>
-              <p className="text-ink-muted leading-relaxed mb-12" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted leading-relaxed mb-12" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 We are ready to assess your requirements and propose a solution. Tell us about your project and we will get back to you within one business day.
               </p>
             </FadeUp>
@@ -72,15 +72,15 @@ export function Contact() {
                 return (
                   <FadeUp key={c.label} delay={0.2 + i * 0.08}>
                     <div className="flex items-start gap-4">
-                      <div className="p-2.5 bg-crimson/10 text-crimson/70 shrink-0">
+                      <div className="p-2.5 bg-crimson/10 text-crimson shrink-0">
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <p className="text-[0.6rem] text-ink-muted font-bold tracking-[0.2em] uppercase mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>{c.label}</p>
+                        <p className="text-[0.72rem] text-ink-muted font-bold tracking-[0.2em] uppercase mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>{c.label}</p>
                         {c.href ? (
-                          <a href={c.href} className="text-sm text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)' }}>{c.value}</a>
+                          <a href={c.href} className="text-base text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)' }}>{c.value}</a>
                         ) : (
-                          <p className="text-sm text-ink-muted whitespace-pre-line leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{c.value}</p>
+                          <p className="text-base text-ink-muted whitespace-pre-line leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>{c.value}</p>
                         )}
                       </div>
                     </div>
@@ -93,8 +93,8 @@ export function Contact() {
           {/* Right form */}
           <div className="lg:col-span-7">
             <FadeUp delay={0.1}>
-              <div className="border border-ink-faint/20 bg-surface-3 p-8 md:p-10">
-                <h3 className="text-2xl font-light text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>Submit an inquiry</h3>
+              <div className="border border-ink-faint/40 bg-surface-3 p-8 md:p-10">
+                <h3 className="text-2xl font-semibold text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>Submit an inquiry</h3>
 
                 <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid sm:grid-cols-2 gap-5">
@@ -103,11 +103,11 @@ export function Contact() {
                       { label: 'Organization', type: 'text', placeholder: 'Company / organization' },
                     ].map((f) => (
                       <div key={f.label}>
-                        <label className="block text-[0.62rem] tracking-[0.18em] uppercase text-ink-muted/40 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                          {f.label} <span className="text-crimson/70">*</span>
+                        <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                          {f.label} <span className="text-crimson">*</span>
                         </label>
                         <input type={f.type} required placeholder={f.placeholder}
-                          className="w-full px-4 py-3 border border-ink-faint/20 bg-surface-2 text-sm text-ink/80 placeholder-ink-faint/25 focus:outline-none focus:border-gold/30 transition-all"
+                          className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all"
                           style={{ fontFamily: 'var(--font-body)' }} />
                       </div>
                     ))}
@@ -119,24 +119,24 @@ export function Contact() {
                       { label: 'Phone', type: 'tel', placeholder: '+91 9999999999' },
                     ].map((f) => (
                       <div key={f.label}>
-                        <label className="block text-[0.62rem] tracking-[0.18em] uppercase text-ink-muted/40 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                          {f.label} <span className="text-crimson/70">*</span>
+                        <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                          {f.label} <span className="text-crimson">*</span>
                         </label>
                         <input type={f.type} required placeholder={f.placeholder}
-                          className="w-full px-4 py-3 border border-ink-faint/20 bg-surface-2 text-sm text-ink/80 placeholder-ink-faint/25 focus:outline-none focus:border-gold/30 transition-all"
+                          className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all"
                           style={{ fontFamily: 'var(--font-body)' }} />
                       </div>
                     ))}
                   </div>
 
                   <div>
-                    <label className="block text-[0.62rem] tracking-[0.18em] uppercase text-ink-muted/40 mb-3" style={{ fontFamily: 'var(--font-body)' }}>
-                      Service Area of Interest <span className="text-crimson/70">*</span>
+                    <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-3" style={{ fontFamily: 'var(--font-body)' }}>
+                      Service Area of Interest <span className="text-crimson">*</span>
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {serviceOptions.map((s) => (
                         <button key={s} type="button" onClick={() => setSelected(s)}
-                          className={`px-4 py-1.5 text-xs border transition-all ${selected === s ? 'border-crimson bg-crimson text-void' : 'border-ink-faint/20 text-ink-muted/50 hover:border-gold/30 hover:text-ink-muted'}`}
+                          className={`px-4 py-1.5 text-sm border transition-all ${selected === s ? 'border-crimson bg-crimson text-void' : 'border-ink-faint/40 text-ink-muted/80 hover:border-gold/50 hover:text-ink-muted'}`}
                           style={{ fontFamily: 'var(--font-body)' }}
                         >{s}</button>
                       ))}
@@ -144,20 +144,20 @@ export function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-[0.62rem] tracking-[0.18em] uppercase text-ink-muted/40 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                      Project Description <span className="text-crimson/70">*</span>
+                    <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                      Project Description <span className="text-crimson">*</span>
                     </label>
                     <textarea required rows={4} placeholder="Briefly describe your requirement or project."
-                      className="w-full px-4 py-3 border border-ink-faint/20 bg-surface-2 text-sm text-ink/80 placeholder-ink-faint/25 focus:outline-none focus:border-gold/30 transition-all resize-none"
+                      className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all resize-none"
                       style={{ fontFamily: 'var(--font-body)' }} />
                   </div>
 
                   <div>
-                    <label className="block text-[0.62rem] tracking-[0.18em] uppercase text-ink-muted/40 mb-3" style={{ fontFamily: 'var(--font-body)' }}>Preferred Contact Method</label>
+                    <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-3" style={{ fontFamily: 'var(--font-body)' }}>Preferred Contact Method</label>
                     <div className="flex gap-3">
                       {(['email', 'phone'] as const).map((m) => (
                         <button key={m} type="button" onClick={() => setContact(m)}
-                          className={`flex items-center gap-2 px-5 py-2.5 text-sm border transition-all capitalize ${contact === m ? 'border-crimson bg-crimson/10 text-crimson' : 'border-ink-faint/20 text-ink-muted/50 hover:border-gold/20'}`}
+                          className={`flex items-center gap-2 px-5 py-2.5 text-base border transition-all capitalize ${contact === m ? 'border-crimson bg-crimson/10 text-crimson' : 'border-ink-faint/40 text-ink-muted/80 hover:border-gold/40'}`}
                           style={{ fontFamily: 'var(--font-body)' }}
                         >{m}</button>
                       ))}
@@ -165,10 +165,10 @@ export function Contact() {
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-xs font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light glow-crimson"
+                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-sm font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light glow-crimson"
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
                     Submit Inquiry

@@ -26,9 +26,9 @@ export function Navigation() {
   const navBg = useTransform(
     scrollY,
     [0, 80],
-    ['rgba(251,247,240,0)', 'rgba(251,247,240,0.92)']
+    ['rgba(255,253,248,0)', 'rgba(255,253,248,0.92)']
   )
-  const navBorder = useTransform(scrollY, [0, 80], ['rgba(180,145,60,0)', 'rgba(180,145,60,0.16)'])
+  const navBorder = useTransform(scrollY, [0, 80], ['rgba(212,167,44,0)', 'rgba(212,167,44,0.16)'])
 
   return (
     <>
@@ -36,8 +36,8 @@ export function Navigation() {
         style={{ backgroundColor: navBg, borderBottomColor: navBorder }}
         className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-16">
-          <div className="flex items-center justify-between h-18 py-3">
+        <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
+          <div className="flex items-center justify-between h-20 py-3">
             {/* Logo */}
             <motion.a
               href="#"
@@ -52,7 +52,7 @@ export function Navigation() {
                 alt="Sanctus Redemptor"
                 width={200}
                 height={50}
-                className="h-9 w-auto object-contain"
+                className="h-11 w-auto object-contain"
                 priority
                 loading="eager"
               />
@@ -67,13 +67,13 @@ export function Navigation() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * i }}
-                  className={`relative text-xs font-medium tracking-[0.1em] uppercase transition-colors group ${
-                    scrolled ? 'text-ink-muted hover:text-ink' : 'text-white/85 hover:text-white'
+                  className={`relative text-sm font-bold tracking-[0.12em] uppercase transition-colors group ${
+                    scrolled ? 'text-ink hover:text-crimson' : 'text-white hover:text-gold-light'
                   }`}
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {link.label}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gold group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
                 </motion.a>
               ))}
             </nav>
@@ -87,7 +87,7 @@ export function Navigation() {
             >
               <a
                 href="#contact"
-                className="flex items-center gap-2 px-5 py-2.5 bg-crimson text-void text-xs font-medium tracking-[0.1em] uppercase hover:bg-crimson-light transition-all duration-300 group glow-crimson"
+                className="flex items-center gap-2 px-6 py-3 bg-crimson text-void text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light hover:scale-[1.03] transition-all duration-300 group glow-crimson"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Book a Consultation
@@ -132,7 +132,7 @@ export function Navigation() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i + 0.1 }}
-                  className="text-4xl font-light text-ink hover:text-gold transition-colors"
+                  className="text-4xl font-semibold text-ink hover:text-gold transition-colors"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {link.label}
@@ -144,13 +144,13 @@ export function Navigation() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-void text-sm font-medium tracking-[0.1em] uppercase"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-void text-base font-medium tracking-[0.1em] uppercase"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Book a Consultation
                 <ArrowUpRight className="w-4 h-4" />
               </a>
-              <p className="mt-6 text-xs text-ink-muted/40" style={{ fontFamily: 'var(--font-body)' }}>
+              <p className="mt-6 text-sm text-ink-muted/75" style={{ fontFamily: 'var(--font-body)' }}>
                 office@srplblr.com &nbsp;·&nbsp; +91 7625088502
               </p>
             </div>

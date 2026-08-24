@@ -41,11 +41,11 @@ export function Stats() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       {/* Subtle grid texture */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.025]" style={{
-        backgroundImage: 'repeating-linear-gradient(0deg, #B4913C 0, #B4913C 1px, transparent 0, transparent 60px), repeating-linear-gradient(90deg, #B4913C 0, #B4913C 1px, transparent 0, transparent 60px)',
+        backgroundImage: 'repeating-linear-gradient(0deg, #D4A72C 0, #D4A72C 1px, transparent 0, transparent 60px), repeating-linear-gradient(90deg, #D4A72C 0, #D4A72C 1px, transparent 0, transparent 60px)',
       }} />
       <div className="absolute inset-0 bg-gradient-to-r from-crimson/8 via-transparent to-gold/5 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 lg:divide-x lg:divide-ink-faint/15">
           {stats.map((stat, i) => (
             <motion.div
@@ -55,13 +55,13 @@ export function Stats() {
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center text-center px-6 py-4"
             >
-              <div className="text-6xl md:text-7xl font-light mb-3 gold-shimmer" style={{ fontFamily: 'var(--font-sans)' }}>
+              <div className="text-6xl md:text-7xl font-semibold mb-3 gold-shimmer" style={{ fontFamily: 'var(--font-sans)' }}>
                 <Counter end={stat.value} suffix={stat.suffix} inView={inView} />
               </div>
-              <div className="text-sm font-medium text-ink/80 mb-1.5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
+              <div className="text-base font-medium text-ink mb-1.5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>
                 {stat.label}
               </div>
-              <div className="text-ink-muted/40 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem' }}>
+              <div className="text-ink-muted/75 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>
                 {stat.desc}
               </div>
             </motion.div>

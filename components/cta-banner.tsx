@@ -18,14 +18,14 @@ export function CtaBanner() {
         <motion.div
           style={{
             y: yUp,
-            background: 'radial-gradient(circle, rgba(180,145,60,0.4) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(212,167,44,0.4) 0%, transparent 70%)',
           }}
           className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-20"
         />
         <motion.div
           style={{
             y: yDown,
-            background: 'radial-gradient(circle, rgba(180,145,60,0.3) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(212,167,44,0.3) 0%, transparent 70%)',
           }}
           className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full opacity-15"
         />
@@ -34,14 +34,14 @@ export function CtaBanner() {
         <svg className="absolute inset-0 w-full h-full opacity-[0.08]" preserveAspectRatio="xMidYMid slice">
           <defs>
             <pattern id="cta-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M 60 0 L 0 0 0 60" stroke="#B4913C" strokeWidth="0.5" fill="none" />
+              <path d="M 60 0 L 0 0 0 60" stroke="#D4A72C" strokeWidth="0.5" fill="none" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#cta-grid)" />
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -55,7 +55,7 @@ export function CtaBanner() {
           </div>
 
           <h2
-            className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] text-void mb-6 max-w-4xl mx-auto"
+            className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] text-void mb-6 max-w-4xl mx-auto"
             style={{ fontFamily: 'var(--font-sans)' }}
           >
             {"Let's talk about"}{' '}
@@ -72,18 +72,18 @@ export function CtaBanner() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(180,145,60,0.35)' }}
+              whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(212,167,44,0.35)' }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-void text-crimson text-sm font-medium tracking-widest uppercase transition-all duration-300 hover:gap-4 hover:bg-void/90"
-              style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.1em', fontSize: '0.72rem' }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-void text-crimson text-base font-medium tracking-widest uppercase transition-all duration-300 hover:gap-4 hover:bg-void/90"
+              style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.1em', fontSize: '0.84rem' }}
             >
               Request a Consultation
               <ArrowRight className="w-4 h-4" />
             </motion.a>
             <a
               href="tel:+917625088502"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-void/35 text-void/85 text-sm font-medium tracking-widest uppercase transition-all duration-300 hover:border-void/60 hover:text-void"
-              style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.1em', fontSize: '0.72rem' }}
+              className="inline-flex items-center gap-2 px-8 py-4 border border-void/35 text-void/85 text-base font-medium tracking-widest uppercase transition-all duration-300 hover:border-void/60 hover:text-void"
+              style={{ fontFamily: 'var(--font-body)', letterSpacing: '0.1em', fontSize: '0.84rem' }}
             >
               +91 7625088502
             </a>

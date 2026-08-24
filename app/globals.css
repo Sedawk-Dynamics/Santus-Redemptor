@@ -6,19 +6,19 @@
 
 @theme inline {
   /* ── Sanctus Redemptor – Warm Editorial Palette ── */
-  --color-crimson:        #7A2331;
-  --color-crimson-light:  #93303F;
-  --color-crimson-dark:   #591A24;
-  --color-gold:           #B4913C;
-  --color-gold-light:     #CBAB5E;
-  --color-gold-dark:      #8C6E28;
-  --color-void:           #FBF7F0;
-  --color-surface:        #F5EEE1;
-  --color-surface-2:      #EFE5D2;
-  --color-surface-3:      #E6D9BE;
-  --color-ink:            #000000;
-  --color-ink-muted:      #1A1A1A;
-  --color-ink-faint:      #2E2E2E;
+  --color-crimson:        #A81B2D;
+  --color-crimson-light:  #C42A3C;
+  --color-crimson-dark:   #7D0F1E;
+  --color-gold:           #D4A72C;
+  --color-gold-light:     #EBC959;
+  --color-gold-dark:      #A67C10;
+  --color-void:           #FFFDF8;
+  --color-surface:        #FBF3E4;
+  --color-surface-2:      #F5E9D2;
+  --color-surface-3:      #EEDDBA;
+  --color-ink:            #14100C;
+  --color-ink-muted:      #3A2F26;
+  --color-ink-faint:      #6B5B4A;
 
   /* Shadcn tokens */
   --color-sidebar-ring:              var(--sidebar-ring);
@@ -65,38 +65,38 @@
 
 :root {
   color-scheme: light;
-  --background:           #FBF7F0;
-  --foreground:           #000000;
-  --card:                 #F5EEE1;
-  --card-foreground:      #000000;
-  --popover:              #FBF7F0;
-  --popover-foreground:   #000000;
-  --primary:              #7A2331;
-  --primary-foreground:   #FBF7F0;
-  --secondary:            #EFE5D2;
-  --secondary-foreground: #000000;
-  --muted:                #EFE5D2;
-  --muted-foreground:     #1A1A1A;
-  --accent:               #B4913C;
-  --accent-foreground:    #FBF7F0;
+  --background:           #FFFDF8;
+  --foreground:           #14100C;
+  --card:                 #FBF3E4;
+  --card-foreground:      #14100C;
+  --popover:              #FFFDF8;
+  --popover-foreground:   #14100C;
+  --primary:              #A81B2D;
+  --primary-foreground:   #FFFDF8;
+  --secondary:            #F5E9D2;
+  --secondary-foreground: #14100C;
+  --muted:                #F5E9D2;
+  --muted-foreground:     #3A2F26;
+  --accent:               #D4A72C;
+  --accent-foreground:    #FFFDF8;
   --destructive:          oklch(0.577 0.245 27.325);
-  --border:               rgba(122,35,49,0.14);
-  --input:                rgba(122,35,49,0.18);
-  --ring:                 #7A2331;
+  --border:               rgba(168,27,45,0.14);
+  --input:                rgba(168,27,45,0.18);
+  --ring:                 #A81B2D;
   --radius:               0.75rem;
-  --chart-1:              #7A2331;
-  --chart-2:              #B4913C;
-  --chart-3:              #93303F;
-  --chart-4:              #CBAB5E;
-  --chart-5:              #591A24;
-  --sidebar:              #F5EEE1;
-  --sidebar-foreground:   #000000;
-  --sidebar-primary:      #7A2331;
-  --sidebar-primary-foreground: #FBF7F0;
-  --sidebar-accent:       #EFE5D2;
-  --sidebar-accent-foreground:  #241B14;
-  --sidebar-border:       rgba(122,35,49,0.14);
-  --sidebar-ring:         #7A2331;
+  --chart-1:              #A81B2D;
+  --chart-2:              #D4A72C;
+  --chart-3:              #C42A3C;
+  --chart-4:              #EBC959;
+  --chart-5:              #7D0F1E;
+  --sidebar:              #FBF3E4;
+  --sidebar-foreground:   #14100C;
+  --sidebar-primary:      #A81B2D;
+  --sidebar-primary-foreground: #FFFDF8;
+  --sidebar-accent:       #F5E9D2;
+  --sidebar-accent-foreground:  #14100C;
+  --sidebar-border:       rgba(168,27,45,0.14);
+  --sidebar-ring:         #A81B2D;
 }
 
 @layer base {
@@ -105,16 +105,20 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #FBF7F0;
+    background-color: #FFFDF8;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
 }
 
@@ -123,15 +127,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #7A2331, #B4913C, #7A2331);
+  height: 4px;
+  background: linear-gradient(90deg, #A81B2D, #D4A72C, #A81B2D);
   z-index: 9999;
   transform-origin: left;
 }
 
 /* Gold gradient text */
 .text-gradient {
-  background: linear-gradient(120deg, #8C6E28 0%, #CBAB5E 40%, #8C6E28 80%);
+  background: linear-gradient(120deg, #A67C10 0%, #EBC959 40%, #A67C10 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -143,7 +147,7 @@
   100% { background-position:  200% center; }
 }
 .gold-shimmer {
-  background: linear-gradient(90deg, #8C6E28 0%, #CBAB5E 30%, #B4913C 50%, #CBAB5E 70%, #8C6E28 100%);
+  background: linear-gradient(90deg, #A67C10 0%, #EBC959 30%, #D4A72C 50%, #EBC959 70%, #A67C10 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -170,17 +174,17 @@
 
 /* Glows */
 .glow-crimson {
-  box-shadow: 0 0 28px rgba(122,35,49,0.22), 0 0 60px rgba(122,35,49,0.10);
+  box-shadow: 0 0 32px rgba(168,27,45,0.38), 0 0 70px rgba(168,27,45,0.18);
 }
 .glow-gold {
-  box-shadow: 0 0 28px rgba(180,145,60,0.28), 0 0 60px rgba(180,145,60,0.12);
+  box-shadow: 0 0 32px rgba(212,167,44,0.42), 0 0 70px rgba(212,167,44,0.20);
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar           { width: 5px; }
-::-webkit-scrollbar-track     { background: #FBF7F0; }
-::-webkit-scrollbar-thumb     { background: #7A2331; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover{ background: #93303F; }
+::-webkit-scrollbar-track     { background: #FFFDF8; }
+::-webkit-scrollbar-thumb     { background: #A81B2D; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: #C42A3C; }
 
 /* Line-clamp */
 .line-clamp-3 {
@@ -212,22 +216,22 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #B4913C 50%, transparent);
+  background: linear-gradient(90deg, transparent, #D4A72C 50%, transparent);
 }
 
 /* Hero image overlay — tuned for light design, keeps text legible over photography */
 .hero-overlay {
   background: linear-gradient(
     135deg,
-    rgba(251,247,240,0.94) 0%,
-    rgba(245,238,225,0.72) 38%,
-    rgba(122,35,49,0.12) 100%
+    rgba(255,253,248,0.94) 0%,
+    rgba(251,243,228,0.72) 38%,
+    rgba(168,27,45,0.12) 100%
   );
 }
 
 /* Section separator */
 .section-line {
-  width: 48px;
-  height: 2px;
-  background: linear-gradient(90deg, #7A2331, #B4913C);
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #A81B2D, #D4A72C);
 }

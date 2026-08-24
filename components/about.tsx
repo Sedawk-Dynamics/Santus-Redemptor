@@ -30,9 +30,9 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 56 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -50,19 +50,19 @@ export function About() {
       {/* Subtle corner gradient */}
       <div
         className="absolute top-0 right-0 w-96 h-96 pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(circle at top right, rgba(122,35,49,0.08) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle at top right, rgba(168,27,45,0.08) 0%, transparent 70%)' }}
       />
       <div
         className="absolute bottom-0 left-0 w-96 h-96 pointer-events-none opacity-20"
-        style={{ background: 'radial-gradient(circle at bottom left, rgba(180,145,60,0.10) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle at bottom left, rgba(212,167,44,0.10) 0%, transparent 70%)' }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Section label */}
         <FadeUp>
           <div className="flex items-center gap-4 mb-16">
             <div className="section-line" />
-            <span className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>About Us</span>
+            <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>About Us</span>
           </div>
         </FadeUp>
 
@@ -70,43 +70,43 @@ export function About() {
           {/* Left: main text */}
           <div className="lg:col-span-6">
             <FadeUp>
-              <h2 className="text-5xl md:text-6xl font-light leading-[1.05] text-ink mb-10" style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink mb-10" style={{ fontFamily: 'var(--font-sans)' }}>
                 A company built to close{' '}
                 <em className="text-gradient not-italic">a real gap.</em>
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.1}>
-              <p className="text-ink-muted leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 Sanctus Redemptor Private Limited was incorporated in Bangalore to address a consistent gap in the market: organizations doing substantive work in education, social development, publishing, and the corporate sector often lacked access to integrated, high-quality technology and media services tailored to their specific operating context.
               </p>
             </FadeUp>
 
             <FadeUp delay={0.15}>
-              <p className="text-ink-muted leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 We bring together expertise across software engineering, media production, and publishing under a single corporate structure — enabling clients to access coordinated, high-calibre services without managing fragmented vendor relationships.
               </p>
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 Our client base spans corporates, non-governmental organizations, and educational institutions in India and internationally, with delivery experience in Bangalore, across India, and in the United States.
               </p>
             </FadeUp>
 
             {/* Pillar icons */}
             <FadeUp delay={0.3}>
-              <div className="grid grid-cols-3 gap-4 mt-14 pt-10 border-t border-ink-faint/20">
+              <div className="grid grid-cols-3 gap-4 mt-14 pt-10 border-t border-ink-faint/40">
                 {[
                   { label: 'Software\n& Web Dev', icon: Code2 },
                   { label: 'Media\nProduction', icon: Film },
                   { label: 'Book &\nPublishing', icon: BookOpen },
                 ].map((v) => (
                   <div key={v.label} className="flex flex-col gap-3">
-                    <div className="flex items-center justify-center w-9 h-9 border border-gold/25 text-gold/80">
+                    <div className="flex items-center justify-center w-9 h-9 border border-gold/45 text-gold/80">
                       <v.icon className="w-4 h-4" />
                     </div>
-                    <span className="text-ink-muted/60 leading-tight whitespace-pre-line" style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', letterSpacing: '0.04em' }}>{v.label}</span>
+                    <span className="text-ink-muted/85 leading-tight whitespace-pre-line" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', letterSpacing: '0.04em' }}>{v.label}</span>
                   </div>
                 ))}
               </div>
@@ -145,10 +145,10 @@ export function About() {
                   <FadeUp key={v.title} delay={i * 0.08}>
                     <div>
                       <div className="flex items-start gap-3 mb-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold/70 shrink-0 mt-0.5" />
-                        <h3 className="text-lg font-light text-ink leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{v.title}</h3>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                        <h3 className="text-lg font-semibold text-ink leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{v.title}</h3>
                       </div>
-                      <p className="ml-6 text-ink-muted/60 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.85rem' }}>{v.desc}</p>
+                      <p className="ml-6 text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>{v.desc}</p>
                     </div>
                   </FadeUp>
                 ))}
@@ -157,10 +157,10 @@ export function About() {
 
             {/* CIN badge */}
             <FadeUp delay={0.4}>
-              <div className="p-5 border border-gold/15 bg-surface-2">
-                <p className="text-[0.6rem] text-ink-muted font-bold mb-1 tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Registered Entity</p>
-                <p className="text-sm font-medium text-ink" style={{ fontFamily: 'var(--font-body)' }}>Sanctus Redemptor Private Limited</p>
-                <p className="text-ink-muted mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem' }}>CIN: U82990KA2025PTC203720 &nbsp;·&nbsp; GSTIN: 29ABQCS4225H1ZX</p>
+              <div className="p-5 border border-gold/35 bg-surface-2">
+                <p className="text-[0.72rem] text-ink-muted font-bold mb-1 tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Registered Entity</p>
+                <p className="text-base font-medium text-ink" style={{ fontFamily: 'var(--font-body)' }}>Sanctus Redemptor Private Limited</p>
+                <p className="text-ink-muted mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>CIN: U82990KA2025PTC203720 &nbsp;·&nbsp; GSTIN: 29ABQCS4225H1ZX</p>
               </div>
             </FadeUp>
           </div>

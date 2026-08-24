@@ -64,9 +64,9 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 56 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >{children}</motion.div>
   )
 }
@@ -83,38 +83,38 @@ function ProjectCard({ project: proj, index }: { project: typeof projects[0]; in
       style={{ x }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className={`group relative overflow-hidden transition-all duration-500 border-b border-ink-faint/20 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
+      className={`group relative overflow-hidden transition-all duration-500 border-b border-ink-faint/40 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
     >
       <div className="py-10 md:py-12">
         <div className="grid lg:grid-cols-12 gap-8">
           {/* Left */}
           <div className="lg:col-span-7">
             <div className="flex items-center gap-4 mb-5">
-              <div className="flex items-center justify-center w-9 h-9 shrink-0 border border-gold/25 bg-surface/50 text-gold/70 group-hover:border-gold group-hover:text-gold transition-all duration-300">
+              <div className="flex items-center justify-center w-9 h-9 shrink-0 border border-gold/45 bg-surface/50 text-gold group-hover:border-gold group-hover:text-gold transition-all duration-300">
                 <proj.icon className="w-4 h-4" />
               </div>
-              <span className="text-xs text-gold/30 font-mono tracking-widest">{proj.num}</span>
-              <span className="text-[0.62rem] tracking-[0.15em] uppercase text-ink-muted/35" style={{ fontFamily: 'var(--font-body)' }}>{proj.type}</span>
+              <span className="text-sm text-gold/70 font-mono tracking-widest">{proj.num}</span>
+              <span className="text-[0.74rem] tracking-[0.15em] uppercase text-ink-muted/90" style={{ fontFamily: 'var(--font-body)' }}>{proj.type}</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-light text-ink mb-2 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: 'var(--font-sans)' }}>
+            <h3 className="text-3xl md:text-4xl font-semibold text-ink mb-2 group-hover:text-gold transition-colors duration-300" style={{ fontFamily: 'var(--font-sans)' }}>
               {proj.title}
             </h3>
-            <p className="text-sm font-medium mb-5 text-gold/70" style={{ fontFamily: 'var(--font-body)' }}>{proj.client}</p>
-            <p className="text-ink-muted/60 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>{proj.desc}</p>
+            <p className="text-base font-medium mb-5 text-gold" style={{ fontFamily: 'var(--font-body)' }}>{proj.client}</p>
+            <p className="text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1.02rem' }}>{proj.desc}</p>
           </div>
 
           {/* Right */}
           <div className="lg:col-span-5">
             <ul className="space-y-2.5 mb-8">
               {proj.bullets.map((b) => (
-                <li key={b} className="flex items-start gap-2.5 text-ink-muted/50" style={{ fontFamily: 'var(--font-body)', fontSize: '0.83rem' }}>
+                <li key={b} className="flex items-start gap-2.5 text-ink-muted/80" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
                   <span className="w-1 h-1 rounded-full bg-gold/40 mt-2 shrink-0" />
                   {b}
                 </li>
               ))}
             </ul>
             <div className="flex items-center gap-4">
-              <span className={`text-[0.58rem] tracking-widest uppercase px-3 py-1 border font-medium ${proj.status === 'LIVE' ? 'border-emerald-500/30 text-emerald-400/80' : proj.status === 'IN DEVELOPMENT' ? 'border-gold/30 text-gold/60' : 'border-ink-faint/20 text-ink-muted/40'}`} style={{ fontFamily: 'var(--font-body)' }}>
+              <span className={`text-[0.7rem] tracking-widest uppercase px-3 py-1 border font-medium ${proj.status === 'LIVE' ? 'border-emerald-500/30 text-emerald-400/80' : proj.status === 'IN DEVELOPMENT' ? 'border-gold/50 text-gold' : 'border-ink-faint/40 text-ink-muted/75'}`} style={{ fontFamily: 'var(--font-body)' }}>
                 {proj.status}
               </span>
               {proj.link && (
@@ -123,7 +123,7 @@ function ProjectCard({ project: proj, index }: { project: typeof projects[0]; in
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex items-center gap-1.5 text-xs text-crimson/70 hover:text-crimson transition-colors"
+                  className="flex items-center gap-1.5 text-sm text-crimson hover:text-crimson transition-colors"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {proj.link} <ExternalLink className="w-3 h-3" />
@@ -149,18 +149,18 @@ export function Portfolio() {
     <section id="portfolio" className="relative py-32 md:py-44 bg-surface overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="grid lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-7">
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">
                 <div className="section-line" />
-                <span className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Our Work</span>
+                <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Our Work</span>
               </div>
             </FadeUp>
             <FadeUp delay={0.1}>
-              <h2 className="text-5xl md:text-6xl font-light leading-[1.05] text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
                 A cross-section of what{' '}
                 <em className="text-gradient not-italic">we have built.</em>
               </h2>
@@ -168,7 +168,7 @@ export function Portfolio() {
           </div>
           <div className="lg:col-span-5 lg:pt-16">
             <FadeUp delay={0.2}>
-              <p className="text-ink-muted/55 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+              <p className="text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 Spanning technology, media, and publishing — selected projects that demonstrate our integrated capability and commitment to measurable outcomes.
               </p>
             </FadeUp>
@@ -187,7 +187,7 @@ export function Portfolio() {
         {/* Clients marquee */}
         <FadeUp delay={0.3}>
           <div className="mt-24 pt-16 border-t border-ink-faint/15">
-            <p className="text-[0.6rem] tracking-[0.3em] uppercase text-ink-muted font-bold text-center mb-10" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-[0.72rem] tracking-[0.3em] uppercase text-ink-muted font-bold text-center mb-10" style={{ fontFamily: 'var(--font-body)' }}>
               Trusted by Leading Organizations
             </p>
             <div className="overflow-hidden">

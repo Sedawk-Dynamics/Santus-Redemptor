@@ -80,9 +80,9 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   const inView = useInView(ref, { once: true, margin: '-60px' })
   return (
     <motion.div ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 56 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >{children}</motion.div>
   )
 }
@@ -96,23 +96,23 @@ export function Services() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
+      <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-20 max-w-4xl">
           <FadeUp>
             <div className="flex items-center gap-4 mb-8">
               <div className="section-line" />
-              <span className="text-[0.62rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Services</span>
+              <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>Services</span>
             </div>
           </FadeUp>
           <FadeUp delay={0.1}>
-            <h2 className="text-5xl md:text-6xl font-light leading-[1.05] text-ink mb-6" style={{ fontFamily: 'var(--font-sans)' }}>
+            <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink mb-6" style={{ fontFamily: 'var(--font-sans)' }}>
               Three core verticals.
               <br /><em className="text-gradient not-italic">One accountable team.</em>
             </h2>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p className="text-ink-muted/60 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+            <p className="text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
               Sanctus Redemptor delivers professional services across three core verticals. Each is supported by a dedicated team with domain expertise, proven methodology, and a commitment to measurable outcomes.
             </p>
           </FadeUp>
@@ -127,24 +127,24 @@ export function Services() {
               <FadeUp key={svc.id} delay={i * 0.08}>
                 <motion.div
                   onClick={() => setActive(isActive ? null : svc.id)}
-                  className={`group relative cursor-pointer border-b border-ink-faint/20 transition-all duration-300 ${isActive ? 'bg-surface-3' : 'hover:bg-surface-3/50'}`}
+                  className={`group relative cursor-pointer border-b border-ink-faint/40 transition-all duration-300 ${isActive ? 'bg-surface-3' : 'hover:bg-surface-3/50'}`}
                 >
                   <div className="py-8 px-0">
                     <div className="flex items-start justify-between gap-6">
                       <div className="flex items-start gap-6 flex-1">
-                        <span className="text-4xl font-light text-ink-faint/20 leading-none shrink-0 select-none mt-1" style={{ fontFamily: 'var(--font-sans)' }}>
+                        <span className="text-4xl font-semibold text-ink-faint/20 leading-none shrink-0 select-none mt-1" style={{ fontFamily: 'var(--font-sans)' }}>
                           {svc.label}
                         </span>
                         <div className="flex-1">
                           <div className="flex items-center gap-4 mb-2.5">
-                            <div className="flex items-center justify-center w-10 h-10 shrink-0 border border-gold/25 bg-surface/60 text-gold/70 group-hover:border-gold group-hover:text-gold group-hover:bg-gold/10 transition-all duration-300">
+                            <div className="flex items-center justify-center w-10 h-10 shrink-0 border border-gold/45 bg-surface/60 text-gold group-hover:border-gold group-hover:text-gold group-hover:bg-gold/10 transition-all duration-300">
                               <Icon className="w-4.5 h-4.5" />
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-light text-ink group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
+                            <h3 className="text-2xl md:text-3xl font-semibold text-ink group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
                               {svc.title}
                             </h3>
                           </div>
-                          <p className="text-ink-muted/50 leading-relaxed max-w-2xl ml-14" style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem' }}>
+                          <p className="text-ink-muted/80 leading-relaxed max-w-2xl ml-14" style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}>
                             {svc.tagline}
                           </p>
                         </div>
@@ -152,7 +152,7 @@ export function Services() {
                       <motion.div
                         animate={{ rotate: isActive ? 45 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="shrink-0 mt-1 w-7 h-7 rounded-full border border-ink-faint/25 flex items-center justify-center text-ink-muted/40 group-hover:border-gold/40 group-hover:text-gold transition-all"
+                        className="shrink-0 mt-1 w-7 h-7 rounded-full border border-ink-faint/35 flex items-center justify-center text-ink-muted/75 group-hover:border-gold/40 group-hover:text-gold transition-all"
                       >
                         <Plus className="w-3 h-3" />
                       </motion.div>
@@ -181,21 +181,21 @@ export function Services() {
                             </div>
                             {/* Content */}
                             <div className="lg:col-span-3">
-                              <p className="text-ink-muted/60 leading-relaxed mb-6" style={{ fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
+                              <p className="text-ink-muted/85 leading-relaxed mb-6" style={{ fontFamily: 'var(--font-body)', fontSize: '1.02rem' }}>
                                 {svc.desc}
                               </p>
                               <div className="grid sm:grid-cols-2 gap-2.5 mb-8">
                                 {svc.items.map((item) => (
                                   <div key={item} className="flex items-start gap-2.5">
                                     <div className="w-1 h-1 rounded-full bg-gold/60 mt-2 shrink-0" />
-                                    <span className="text-ink-muted/70" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}>{item}</span>
+                                    <span className="text-ink-muted/90" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>{item}</span>
                                   </div>
                                 ))}
                               </div>
                               <a
                                 href="#contact"
                                 onClick={(e) => e.stopPropagation()}
-                                className="inline-flex items-center gap-2 text-xs font-medium text-crimson hover:text-crimson-light hover:gap-3 transition-all tracking-[0.08em] uppercase"
+                                className="inline-flex items-center gap-2 text-sm font-medium text-crimson hover:text-crimson-light hover:gap-3 transition-all tracking-[0.08em] uppercase"
                                 style={{ fontFamily: 'var(--font-body)' }}
                               >
                                 {svc.cta} <ArrowUpRight className="w-3 h-3" />
@@ -215,15 +215,15 @@ export function Services() {
         {/* Coming soon */}
         <FadeUp delay={0.3}>
           <div className="mt-16 pt-12 border-t border-ink-faint/15">
-            <p className="text-[0.6rem] tracking-[0.25em] uppercase text-ink-muted font-bold mb-8" style={{ fontFamily: 'var(--font-body)' }}>Services in Development</p>
+            <p className="text-[0.72rem] tracking-[0.25em] uppercase text-ink-muted font-bold mb-8" style={{ fontFamily: 'var(--font-body)' }}>Services in Development</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {coming.map((item) => {
                 const Icon = item.icon
                 return (
-                  <div key={item.title} className="flex items-center gap-3 p-4 border border-dashed border-ink-faint/20 bg-surface/40">
+                  <div key={item.title} className="flex items-center gap-3 p-4 border border-dashed border-ink-faint/40 bg-surface/40">
                     <Icon className="w-3.5 h-3.5 text-gold/40 shrink-0" />
-                    <span className="text-ink-muted/50" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem' }}>{item.title}</span>
-                    <span className="ml-auto text-[0.58rem] tracking-widest uppercase text-gold/50 border border-gold/15 px-2 py-0.5" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
+                    <span className="text-ink-muted/80" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>{item.title}</span>
+                    <span className="ml-auto text-[0.7rem] tracking-widest uppercase text-gold/50 border border-gold/35 px-2 py-0.5" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
                   </div>
                 )
               })}

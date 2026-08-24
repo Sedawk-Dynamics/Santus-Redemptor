@@ -33,13 +33,13 @@ export default function PricingPage() {
         </p>
       </PolicySection>
 
-      <div className="mt-12 p-6 border border-gold/20 bg-surface flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <p className="text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
+      <div className="mt-12 p-6 border border-gold/40 bg-surface flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p className="text-base text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
           Have questions about pricing for a specific service?
         </p>
         <Link
           href="/contact-support"
-          className="group inline-flex items-center gap-2 px-5 py-2.5 bg-crimson text-void text-xs font-medium tracking-[0.1em] uppercase hover:bg-crimson-light transition-all duration-300 shrink-0"
+          className="group inline-flex items-center gap-2 px-5 py-2.5 bg-crimson text-void text-sm font-medium tracking-[0.1em] uppercase hover:bg-crimson-light transition-all duration-300 shrink-0"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           Contact Support
