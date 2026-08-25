@@ -5,20 +5,25 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* ── Sanctus Redemptor – Warm Editorial Palette ── */
-  --color-crimson:        #A81B2D;
-  --color-crimson-light:  #C42A3C;
-  --color-crimson-dark:   #7D0F1E;
-  --color-gold:           #D4A72C;
-  --color-gold-light:     #EBC959;
-  --color-gold-dark:      #A67C10;
-  --color-void:           #FFFDF8;
-  --color-surface:        #FBF3E4;
-  --color-surface-2:      #F5E9D2;
-  --color-surface-3:      #EEDDBA;
-  --color-ink:            #14100C;
-  --color-ink-muted:      #3A2F26;
-  --color-ink-faint:      #6B5B4A;
+  /* ── Sanctus Redemptor – Red / Yellow / White Corporate Palette ── */
+  --color-crimson:        #A70F10;
+  --color-crimson-light:  #C4171A;
+  --color-crimson-dark:   #3E0707;
+  --color-gold:           #FDE083;
+  --color-gold-light:     #FFF0BE;
+  --color-gold-dark:      #8A6A12;
+  --color-void:           #FFFFFF;
+  --color-surface:        #F7F7F7;
+  --color-surface-2:      #F2F2F2;
+  --color-surface-3:      #EDEDED;
+  --color-ink:            #1A1A1A;
+  --color-ink-muted:      #4A4A4A;
+  --color-ink-faint:      #B8B8B8;
+
+  /* Supporting tones — geometric contrast blocks */
+  --color-burgundy:       #2C1818;
+  --color-beige:          #EFDFB3;
+  --color-jet:            #0A0A0A;
 
   /* Shadcn tokens */
   --color-sidebar-ring:              var(--sidebar-ring);
@@ -65,38 +70,38 @@
 
 :root {
   color-scheme: light;
-  --background:           #FFFDF8;
-  --foreground:           #14100C;
-  --card:                 #FBF3E4;
-  --card-foreground:      #14100C;
-  --popover:              #FFFDF8;
-  --popover-foreground:   #14100C;
-  --primary:              #A81B2D;
-  --primary-foreground:   #FFFDF8;
-  --secondary:            #F5E9D2;
-  --secondary-foreground: #14100C;
-  --muted:                #F5E9D2;
-  --muted-foreground:     #3A2F26;
-  --accent:               #D4A72C;
-  --accent-foreground:    #FFFDF8;
+  --background:           #FFFFFF;
+  --foreground:           #1A1A1A;
+  --card:                 #F7F7F7;
+  --card-foreground:      #1A1A1A;
+  --popover:              #FFFFFF;
+  --popover-foreground:   #1A1A1A;
+  --primary:              #A70F10;
+  --primary-foreground:   #FFFFFF;
+  --secondary:            #F2F2F2;
+  --secondary-foreground: #1A1A1A;
+  --muted:                #F2F2F2;
+  --muted-foreground:     #4A4A4A;
+  --accent:               #FDE083;
+  --accent-foreground:    #1A1A1A;
   --destructive:          oklch(0.577 0.245 27.325);
-  --border:               rgba(168,27,45,0.14);
-  --input:                rgba(168,27,45,0.18);
-  --ring:                 #A81B2D;
+  --border:               rgba(167,15,16,0.14);
+  --input:                rgba(167,15,16,0.18);
+  --ring:                 #A70F10;
   --radius:               0.75rem;
-  --chart-1:              #A81B2D;
-  --chart-2:              #D4A72C;
-  --chart-3:              #C42A3C;
-  --chart-4:              #EBC959;
-  --chart-5:              #7D0F1E;
-  --sidebar:              #FBF3E4;
-  --sidebar-foreground:   #14100C;
-  --sidebar-primary:      #A81B2D;
-  --sidebar-primary-foreground: #FFFDF8;
-  --sidebar-accent:       #F5E9D2;
-  --sidebar-accent-foreground:  #14100C;
-  --sidebar-border:       rgba(168,27,45,0.14);
-  --sidebar-ring:         #A81B2D;
+  --chart-1:              #A70F10;
+  --chart-2:              #FDE083;
+  --chart-3:              #C4171A;
+  --chart-4:              #FFF0BE;
+  --chart-5:              #3E0707;
+  --sidebar:              #F7F7F7;
+  --sidebar-foreground:   #1A1A1A;
+  --sidebar-primary:      #A70F10;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent:       #F2F2F2;
+  --sidebar-accent-foreground:  #1A1A1A;
+  --sidebar-border:       rgba(167,15,16,0.14);
+  --sidebar-ring:         #A70F10;
 }
 
 @layer base {
@@ -105,7 +110,7 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #FFFDF8;
+    background-color: #FFFFFF;
   }
   body {
     @apply bg-background text-foreground;
@@ -128,14 +133,14 @@
   top: 0;
   left: 0;
   height: 4px;
-  background: linear-gradient(90deg, #A81B2D, #D4A72C, #A81B2D);
+  background: linear-gradient(90deg, #A70F10, #FDE083, #A70F10);
   z-index: 9999;
   transform-origin: left;
 }
 
-/* Gold gradient text */
+/* Accent gradient text — red-led so it stays legible on white/light grounds */
 .text-gradient {
-  background: linear-gradient(120deg, #A67C10 0%, #EBC959 40%, #A67C10 80%);
+  background: linear-gradient(120deg, #A70F10 0%, #E4181B 50%, #FF3B2F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -147,7 +152,18 @@
   100% { background-position:  200% center; }
 }
 .gold-shimmer {
-  background: linear-gradient(90deg, #A67C10 0%, #EBC959 30%, #D4A72C 50%, #EBC959 70%, #A67C10 100%);
+  background: linear-gradient(90deg, #E0A000 0%, #FFF0BE 30%, #FDE083 50%, #FFF0BE 70%, #E0A000 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Bright red shimmer — for emphasis on white/light grounds,
+   where the pale yellow gold-shimmer washes out */
+.accent-shimmer {
+  background: linear-gradient(90deg, #A70F10 0%, #E4181B 30%, #FF3B2F 50%, #E4181B 70%, #A70F10 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -174,17 +190,17 @@
 
 /* Glows */
 .glow-crimson {
-  box-shadow: 0 0 32px rgba(168,27,45,0.38), 0 0 70px rgba(168,27,45,0.18);
+  box-shadow: 0 0 32px rgba(167,15,16,0.38), 0 0 70px rgba(167,15,16,0.18);
 }
 .glow-gold {
-  box-shadow: 0 0 32px rgba(212,167,44,0.42), 0 0 70px rgba(212,167,44,0.20);
+  box-shadow: 0 0 30px rgba(253,224,131,0.55), 0 0 64px rgba(253,224,131,0.26);
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar           { width: 5px; }
-::-webkit-scrollbar-track     { background: #FFFDF8; }
-::-webkit-scrollbar-thumb     { background: #A81B2D; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover{ background: #C42A3C; }
+::-webkit-scrollbar-track     { background: #FFFFFF; }
+::-webkit-scrollbar-thumb     { background: #A70F10; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: #3E0707; }
 
 /* Line-clamp */
 .line-clamp-3 {
@@ -216,16 +232,16 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #D4A72C 50%, transparent);
+  background: linear-gradient(90deg, transparent, #A70F10 50%, transparent);
 }
 
 /* Hero image overlay — tuned for light design, keeps text legible over photography */
 .hero-overlay {
   background: linear-gradient(
     135deg,
-    rgba(255,253,248,0.94) 0%,
-    rgba(251,243,228,0.72) 38%,
-    rgba(168,27,45,0.12) 100%
+    rgba(255,255,255,0.94) 0%,
+    rgba(247,247,247,0.72) 38%,
+    rgba(167,15,16,0.12) 100%
   );
 }
 
@@ -233,5 +249,5 @@
 .section-line {
   width: 64px;
   height: 3px;
-  background: linear-gradient(90deg, #A81B2D, #D4A72C);
+  background: linear-gradient(90deg, #A70F10, #FDE083);
 }

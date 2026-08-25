@@ -137,10 +137,10 @@ export function Services() {
                         </span>
                         <div className="flex-1">
                           <div className="flex items-center gap-4 mb-2.5">
-                            <div className="flex items-center justify-center w-10 h-10 shrink-0 border border-gold/45 bg-surface/60 text-gold group-hover:border-gold group-hover:text-gold group-hover:bg-gold/10 transition-all duration-300">
+                            <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-2xl bg-gold text-burgundy shadow-sm ring-4 ring-gold/30 -rotate-6 group-hover:rotate-0 group-hover:scale-110 group-hover:bg-crimson group-hover:text-white group-hover:ring-crimson/40 transition-all duration-300">
                               <Icon className="w-4.5 h-4.5" />
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-semibold text-ink group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
+                            <h3 className="text-2xl md:text-3xl font-semibold text-ink group-hover:text-crimson transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
                               {svc.title}
                             </h3>
                           </div>
@@ -221,9 +221,9 @@ export function Services() {
                 const Icon = item.icon
                 return (
                   <div key={item.title} className="flex items-center gap-3 p-4 border border-dashed border-ink-faint/40 bg-surface/40">
-                    <Icon className="w-3.5 h-3.5 text-gold/40 shrink-0" />
+                    <Icon className="w-3.5 h-3.5 text-gold-dark shrink-0" />
                     <span className="text-ink-muted/80" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>{item.title}</span>
-                    <span className="ml-auto text-[0.7rem] tracking-widest uppercase text-gold/50 border border-gold/35 px-2 py-0.5" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
+                    <span className="ml-auto text-[0.7rem] tracking-widest uppercase text-gold-dark border border-gold px-2 py-0.5" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
                   </div>
                 )
               })}

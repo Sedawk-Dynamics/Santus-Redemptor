@@ -41,7 +41,7 @@ export function Stats() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/25 to-transparent" />
       {/* Subtle grid texture */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.025]" style={{
-        backgroundImage: 'repeating-linear-gradient(0deg, #D4A72C 0, #D4A72C 1px, transparent 0, transparent 60px), repeating-linear-gradient(90deg, #D4A72C 0, #D4A72C 1px, transparent 0, transparent 60px)',
+        backgroundImage: 'repeating-linear-gradient(0deg, #FDE083 0, #FDE083 1px, transparent 0, transparent 60px), repeating-linear-gradient(90deg, #FDE083 0, #FDE083 1px, transparent 0, transparent 60px)',
       }} />
       <div className="absolute inset-0 bg-gradient-to-r from-crimson/8 via-transparent to-gold/5 pointer-events-none" />
 
@@ -55,7 +55,7 @@ export function Stats() {
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center text-center px-6 py-4"
             >
-              <div className="text-6xl md:text-7xl font-semibold mb-3 gold-shimmer" style={{ fontFamily: 'var(--font-sans)' }}>
+              <div className="text-6xl md:text-7xl font-semibold mb-3 accent-shimmer" style={{ fontFamily: 'var(--font-sans)' }}>
                 <Counter end={stat.value} suffix={stat.suffix} inView={inView} />
               </div>
               <div className="text-base font-medium text-ink mb-1.5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>

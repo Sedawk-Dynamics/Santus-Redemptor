@@ -35,7 +35,7 @@ export function Contact() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
         <div className="absolute top-0 right-0 w-96 h-96"
-          style={{ background: 'radial-gradient(circle at top right, rgba(168,27,45,0.06) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle at top right, rgba(167,15,16,0.06) 0%, transparent 70%)' }} />
       </div>
 
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
@@ -72,7 +72,7 @@ export function Contact() {
                 return (
                   <FadeUp key={c.label} delay={0.2 + i * 0.08}>
                     <div className="flex items-start gap-4">
-                      <div className="p-2.5 bg-crimson/10 text-crimson shrink-0">
+                      <div className="p-3 rounded-2xl bg-gold text-burgundy ring-1 ring-gold/50 shrink-0 -rotate-6 hover:rotate-0 hover:scale-110 hover:bg-crimson hover:text-white hover:ring-crimson/40 transition-all duration-300">
                         <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div>

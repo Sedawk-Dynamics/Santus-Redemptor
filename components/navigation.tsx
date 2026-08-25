@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
@@ -15,20 +15,14 @@ const links = [
 
 export function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
-
-  useEffect(() => {
-    const unsub = scrollY.on('change', (v) => setScrolled(v > 60))
-    return unsub
-  }, [scrollY])
 
   const navBg = useTransform(
     scrollY,
     [0, 80],
-    ['rgba(255,253,248,0)', 'rgba(255,253,248,0.92)']
+    ['rgba(255,255,255,0.97)', 'rgba(255,255,255,1)']
   )
-  const navBorder = useTransform(scrollY, [0, 80], ['rgba(212,167,44,0)', 'rgba(212,167,44,0.16)'])
+  const navBorder = useTransform(scrollY, [0, 80], ['rgba(237,237,237,1)', 'rgba(167,15,16,0.25)'])
 
   return (
     <>
@@ -67,13 +61,11 @@ export function Navigation() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * i }}
-                  className={`relative text-sm font-bold tracking-[0.12em] uppercase transition-colors group ${
-                    scrolled ? 'text-ink hover:text-crimson' : 'text-white hover:text-gold-light'
-                  }`}
+                  className="relative text-sm font-bold tracking-[0.12em] uppercase text-ink hover:text-crimson transition-colors group"
                   style={{ fontFamily: 'var(--font-body)' }}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-crimson group-hover:w-full transition-all duration-300" />
                 </motion.a>
               ))}
             </nav>
@@ -87,7 +79,7 @@ export function Navigation() {
             >
               <a
                 href="#contact"
-                className="flex items-center gap-2 px-6 py-3 bg-crimson text-void text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light hover:scale-[1.03] transition-all duration-300 group glow-crimson"
+                className="flex items-center gap-2 px-6 py-3 bg-crimson text-white text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light hover:scale-[1.03] transition-all duration-300 group"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Book a Consultation
@@ -97,9 +89,7 @@ export function Navigation() {
 
             {/* Mobile menu button */}
             <button
-              className={`md:hidden p-2 transition-colors hover:text-gold ${
-                scrolled ? 'text-ink' : 'text-white'
-              }`}
+              className="md:hidden p-2 text-ink transition-colors hover:text-crimson"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
@@ -121,7 +111,7 @@ export function Navigation() {
             className="fixed inset-0 z-40 bg-void flex flex-col pt-24 pb-12 px-8"
           >
             {/* Gold rule */}
-            <div className="absolute top-[72px] left-0 right-0 h-px bg-gold/20" />
+            <div className="absolute top-[72px] left-0 right-0 h-px bg-crimson/20" />
 
             <nav className="flex flex-col gap-8 mt-6" aria-label="Mobile navigation">
               {links.map((link, i) => (
@@ -132,7 +122,7 @@ export function Navigation() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * i + 0.1 }}
-                  className="text-4xl font-semibold text-ink hover:text-gold transition-colors"
+                  className="text-4xl font-semibold text-ink hover:text-crimson transition-colors"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {link.label}
@@ -144,13 +134,13 @@ export function Navigation() {
               <a
                 href="#contact"
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-void text-base font-medium tracking-[0.1em] uppercase"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-white text-base font-bold tracking-[0.1em] uppercase"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Book a Consultation
                 <ArrowUpRight className="w-4 h-4" />
               </a>
-              <p className="mt-6 text-sm text-ink-muted/75" style={{ fontFamily: 'var(--font-body)' }}>
+              <p className="mt-6 text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
                 office@srplblr.com &nbsp;·&nbsp; +91 7625088502
               </p>
             </div>

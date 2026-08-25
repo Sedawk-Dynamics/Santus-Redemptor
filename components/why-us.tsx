@@ -55,9 +55,9 @@ export function WhyUs() {
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full opacity-60"
-          style={{ background: 'radial-gradient(circle, rgba(212,167,44,0.08) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(253,224,131,0.08) 0%, transparent 70%)' }} />
         <div className="absolute bottom-1/3 left-0 w-64 h-64 rounded-full opacity-60"
-          style={{ background: 'radial-gradient(circle, rgba(168,27,45,0.06) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(167,15,16,0.06) 0%, transparent 70%)' }} />
       </div>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
@@ -74,7 +74,7 @@ export function WhyUs() {
             <FadeUp delay={0.1}>
               <h2 className="text-5xl md:text-6xl font-semibold leading-[1.05] text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
                 What Sets Us{' '}
-                <em className="gold-shimmer not-italic">Apart.</em>
+                <em className="accent-shimmer not-italic">Apart.</em>
               </h2>
             </FadeUp>
           </div>
@@ -94,13 +94,13 @@ export function WhyUs() {
             return (
               <FadeUp key={r.num} delay={i * 0.08}>
                 <motion.div
-                  whileHover={{ backgroundColor: 'rgba(238,221,186,0.7)' }}
+                  whileHover={{ backgroundColor: 'rgba(237,237,237,0.7)' }}
                   className="group relative p-8 bg-surface/40 transition-all duration-300"
                 >
                   {/* Top row */}
                   <div className="flex items-start justify-between mb-6">
-                    <div className="p-2.5 bg-crimson/10 text-crimson/80 group-hover:bg-gold/10 group-hover:text-gold transition-all duration-300">
-                      <Icon className="w-4 h-4" />
+                    <div className="p-3 rounded-2xl bg-gold text-burgundy ring-1 ring-gold/50 -rotate-6 group-hover:rotate-0 group-hover:scale-110 group-hover:bg-crimson group-hover:text-white group-hover:ring-crimson/40 transition-all duration-300">
+                      <Icon className="w-5 h-5" strokeWidth={2.25} />
                     </div>
                     <span className="text-3xl font-semibold text-ink-faint/10 select-none" style={{ fontFamily: 'var(--font-sans)' }}>{r.num}</span>
                   </div>
@@ -109,7 +109,7 @@ export function WhyUs() {
 
                   {/* Hover glow */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: 'radial-gradient(circle at 50% 0%, rgba(212,167,44,0.08) 0%, transparent 60%)' }} />
+                    style={{ background: 'radial-gradient(circle at 50% 0%, rgba(253,224,131,0.08) 0%, transparent 60%)' }} />
                 </motion.div>
               </FadeUp>
             )

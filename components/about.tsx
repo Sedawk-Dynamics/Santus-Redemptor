@@ -50,11 +50,11 @@ export function About() {
       {/* Subtle corner gradient */}
       <div
         className="absolute top-0 right-0 w-96 h-96 pointer-events-none opacity-30"
-        style={{ background: 'radial-gradient(circle at top right, rgba(168,27,45,0.08) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle at top right, rgba(167,15,16,0.08) 0%, transparent 70%)' }}
       />
       <div
         className="absolute bottom-0 left-0 w-96 h-96 pointer-events-none opacity-20"
-        style={{ background: 'radial-gradient(circle at bottom left, rgba(212,167,44,0.10) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle at bottom left, rgba(253,224,131,0.10) 0%, transparent 70%)' }}
       />
 
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
@@ -103,8 +103,8 @@ export function About() {
                   { label: 'Book &\nPublishing', icon: BookOpen },
                 ].map((v) => (
                   <div key={v.label} className="flex flex-col gap-3">
-                    <div className="flex items-center justify-center w-9 h-9 border border-gold/45 text-gold/80">
-                      <v.icon className="w-4 h-4" />
+                    <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-gold text-burgundy ring-1 ring-gold/50 -rotate-6 hover:rotate-0 hover:scale-110 hover:bg-crimson hover:text-white hover:ring-crimson/40 transition-all duration-300">
+                      <v.icon className="w-5 h-5" strokeWidth={2.25} />
                     </div>
                     <span className="text-ink-muted/85 leading-tight whitespace-pre-line" style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', letterSpacing: '0.04em' }}>{v.label}</span>
                   </div>
@@ -145,7 +145,7 @@ export function About() {
                   <FadeUp key={v.title} delay={i * 0.08}>
                     <div>
                       <div className="flex items-start gap-3 mb-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-gold-dark shrink-0 mt-0.5" />
                         <h3 className="text-lg font-semibold text-ink leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{v.title}</h3>
                       </div>
                       <p className="ml-6 text-ink-muted/85 leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>{v.desc}</p>

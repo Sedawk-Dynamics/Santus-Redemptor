@@ -30,7 +30,7 @@ export function Team() {
     <section id="team" className="relative py-32 md:py-44 bg-surface-2 overflow-hidden">
       {/* Subtle radial bg */}
       <div className="absolute inset-0 pointer-events-none opacity-40"
-        style={{ background: 'radial-gradient(ellipse 60% 50% at 80% 50%, rgba(168,27,45,0.06) 0%, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(ellipse 60% 50% at 80% 50%, rgba(167,15,16,0.06) 0%, transparent 70%)' }} />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
@@ -62,12 +62,12 @@ export function Team() {
           {directors.map((d, i) => (
             <FadeUp key={d.name} delay={i * 0.08} className="h-full">
               <motion.div
-                whileHover={{ backgroundColor: 'rgba(238,221,186,0.75)' }}
+                whileHover={{ backgroundColor: 'rgba(237,237,237,0.75)' }}
                 className="group relative h-full bg-surface/60 p-8 transition-all duration-300 overflow-hidden"
               >
                 {/* Avatar initials */}
-                <div className="w-14 h-14 mb-6 flex items-center justify-center border border-gold/35 group-hover:border-gold/35 transition-colors">
-                  <span className="text-xl font-semibold text-gold group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>{d.initials}</span>
+                <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-2xl bg-gold/15 ring-1 ring-gold/35 -rotate-6 group-hover:rotate-0 group-hover:scale-105 group-hover:bg-gold transition-all duration-300">
+                  <span className="text-xl font-semibold text-gold-dark group-hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>{d.initials}</span>
                 </div>
 
                 <h3 className="text-lg font-semibold text-ink mb-1 leading-snug" style={{ fontFamily: 'var(--font-sans)' }}>{d.name}</h3>

@@ -74,7 +74,7 @@ export function Footer() {
       {/* bg glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03]"
-          style={{ background: 'radial-gradient(circle, #D4A72C 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, #FDE083 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
@@ -98,7 +98,7 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   whileHover={{ y: -6, scale: 1.06 }}
-                  className="w-8 h-8 border border-ink-faint/40 flex items-center justify-center text-ink-muted/90 hover:text-gold hover:border-gold/50 transition-all duration-200"
+                  className="w-10 h-10 rounded-xl bg-surface-2 ring-1 ring-ink-faint/25 flex items-center justify-center text-ink-muted hover:text-burgundy hover:bg-gold hover:ring-gold transition-all duration-200"
                   aria-label={s.label}
                 >
                   <s.Icon className="w-3 h-3" />
@@ -186,7 +186,7 @@ export function Footer() {
               </div>
               <a
                 href="/contact-support"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 border border-gold/50 text-gold-dark text-[0.68rem] font-bold tracking-[0.1em] uppercase hover:bg-gold hover:text-void hover:border-gold transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 border border-gold/50 text-gold-dark text-[0.68rem] font-bold tracking-[0.1em] uppercase hover:bg-gold hover:text-burgundy hover:border-gold transition-all duration-200"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
                 Contact Support

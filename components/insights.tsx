@@ -61,7 +61,7 @@ export function Insights() {
           </div>
           <FadeUp delay={0.15}>
             <a href="#"
-              className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold hover:gap-3 transition-all tracking-[0.08em] uppercase"
+              className="inline-flex items-center gap-2 text-sm font-medium text-gold-dark hover:text-crimson hover:gap-3 transition-all tracking-[0.08em] uppercase"
               style={{ fontFamily: 'var(--font-body)' }}
             >
               View all articles <ArrowUpRight className="w-3.5 h-3.5" />
@@ -74,7 +74,7 @@ export function Insights() {
           {articles.map((art, i) => (
             <FadeUp key={art.title} delay={i * 0.1}>
               <motion.article
-                whileHover={{ backgroundColor: 'rgba(238,221,186,0.75)' }}
+                whileHover={{ backgroundColor: 'rgba(237,237,237,0.75)' }}
                 className="group relative h-full flex flex-col bg-surface/50 p-8 cursor-pointer transition-all duration-300 overflow-hidden"
               >
                 {/* Accent top bar */}
@@ -84,7 +84,7 @@ export function Insights() {
                   <span className="text-[0.72rem] tracking-[0.2em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>
                     {art.cat}
                   </span>
-                  <h3 className="text-xl font-semibold leading-snug text-ink group-hover:text-gold transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
+                  <h3 className="text-xl font-semibold leading-snug text-ink group-hover:text-crimson transition-colors" style={{ fontFamily: 'var(--font-sans)' }}>
                     {art.title}
                   </h3>
                   <p className="text-ink-muted/80 leading-relaxed flex-1" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>
