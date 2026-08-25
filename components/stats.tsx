@@ -55,7 +55,7 @@ export function Stats() {
               transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center text-center px-6 py-4"
             >
-              <div className="text-6xl md:text-7xl font-semibold mb-3 accent-shimmer" style={{ fontFamily: 'var(--font-sans)' }}>
+              <div className="text-6xl md:text-7xl font-semibold mb-3 accent-shimmer leading-[1.25] pb-1" style={{ fontFamily: 'var(--font-sans)', fontVariantNumeric: 'lining-nums' }}>
                 <Counter end={stat.value} suffix={stat.suffix} inView={inView} />
               </div>
               <div className="text-base font-medium text-ink mb-1.5 tracking-wide" style={{ fontFamily: 'var(--font-body)' }}>

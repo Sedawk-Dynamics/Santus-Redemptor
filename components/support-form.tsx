@@ -25,19 +25,46 @@ const helpTopics = [
   { label: 'Other', value: 'other' },
 ]
 
+const SUPPORT_TO = 'office@srplblr.com'
+
 export function SupportForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
   const [topic, setTopic] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    if (!topic) {
+      setError('Please choose what you need help with.')
+      return
+    }
+    setError('')
     setSubmitting(true)
-    // Simulate submission — wire to a backend/email service when available.
-    setTimeout(() => {
-      setSubmitting(false)
-      setSubmitted(true)
-    }, 700)
+
+    const data = new FormData(e.currentTarget)
+    const get = (k: string) => String(data.get(k) ?? '').trim()
+    const label = helpTopics.find((t) => t.value === topic)?.label ?? topic
+
+    const body = [
+      `Name: ${get('full-name')}`,
+      `Email: ${get('email')}`,
+      `Phone: ${get('phone')}`,
+      `Order / Payment ID: ${get('order-id') || '\u2014'}`,
+      `Organisation: ${get('organisation') || '\u2014'}`,
+      `Topic: ${label}`,
+      '',
+      'Message:',
+      get('message'),
+    ].join('\n')
+
+    window.location.href =
+      `mailto:${SUPPORT_TO}` +
+      `?subject=${encodeURIComponent('Support request \u2014 ' + label)}` +
+      `&body=${encodeURIComponent(body)}`
+
+    setSubmitting(false)
+    setSubmitted(true)
   }
 
   if (submitted) {
@@ -45,10 +72,11 @@ export function SupportForm() {
       <div className="border border-gold/40 bg-surface p-10 flex flex-col items-center text-center gap-4">
         <CheckCircle2 className="w-8 h-8 text-crimson" />
         <h3 className="text-xl font-medium text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
-          Your request has been received
+          Your request is ready to send
         </h3>
         <p className="text-base text-ink-muted max-w-md" style={{ fontFamily: 'var(--font-body)' }}>
-          Our team will get back to you at the email address you provided. For urgent matters, call{' '}
+          Your email application should now be open with this request ready to send. Once you send it, our
+          team will reply to the email address you provided. For urgent matters, call{' '}
           <a href="tel:+917625088502" className="text-crimson hover:text-crimson-light underline underline-offset-2">
             +91 7625088502
           </a>
@@ -100,7 +128,7 @@ export function SupportForm() {
                 </SelectGroup>
               </SelectContent>
             </Select>
-            <input type="hidden" name="topic" value={topic ?? ''} required />
+            <input type="hidden" name="topic" value={topic ?? ''} />
           </Field>
           <Field>
             <FieldLabel htmlFor="organisation">Organisation name</FieldLabel>
@@ -112,6 +140,12 @@ export function SupportForm() {
           <FieldLabel htmlFor="message">Message *</FieldLabel>
           <Textarea id="message" name="message" required rows={5} placeholder="Tell us how we can help" />
         </Field>
+
+        {error && (
+          <p className="text-sm text-crimson" role="alert" style={{ fontFamily: 'var(--font-body)' }}>
+            {error}
+          </p>
+        )}
 
         <Button
           type="submit"

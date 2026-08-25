@@ -25,9 +25,44 @@ const serviceOptions = [
   'Other',
 ]
 
+const ENQUIRY_TO = 'office@srplblr.com'
+
 export function Contact() {
   const [selected, setSelected] = useState('')
   const [contact, setContact] = useState<'email' | 'phone'>('email')
+  const [error, setError] = useState('')
+  const [sent, setSent] = useState(false)
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const data = new FormData(e.currentTarget)
+    const get = (k: string) => String(data.get(k) ?? '').trim()
+
+    if (!selected) {
+      setError('Please choose a service area of interest.')
+      return
+    }
+    setError('')
+
+    const body = [
+      `Name: ${get('name')}`,
+      `Organization: ${get('organization') || '\u2014'}`,
+      `Email: ${get('email')}`,
+      `Phone: ${get('phone')}`,
+      `Service area: ${selected}`,
+      `Preferred contact method: ${contact}`,
+      '',
+      'Project description:',
+      get('message'),
+    ].join('\n')
+
+    window.location.href =
+      `mailto:${ENQUIRY_TO}` +
+      `?subject=${encodeURIComponent('Website enquiry \u2014 ' + selected)}` +
+      `&body=${encodeURIComponent(body)}`
+
+    setSent(true)
+  }
 
   return (
     <section id="contact" className="relative py-32 md:py-44 bg-surface-2 overflow-hidden">
@@ -94,19 +129,19 @@ export function Contact() {
           <div className="lg:col-span-7">
             <FadeUp delay={0.1}>
               <div className="border border-ink-faint/40 bg-surface-3 p-8 md:p-10">
-                <h3 className="text-2xl font-semibold text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>Submit an inquiry</h3>
+                <h3 className="text-2xl font-semibold text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>Submit an Enquiry</h3>
 
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid sm:grid-cols-2 gap-5">
                     {[
-                      { label: 'Full Name', type: 'text', placeholder: 'Your full name' },
-                      { label: 'Organization', type: 'text', placeholder: 'Company / organization' },
+                      { label: 'Full Name', name: 'name', type: 'text', placeholder: 'Your full name', required: true },
+                      { label: 'Organization', name: 'organization', type: 'text', placeholder: 'Company / organization', required: false },
                     ].map((f) => (
                       <div key={f.label}>
                         <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                          {f.label} <span className="text-crimson">*</span>
+                          {f.label} {f.required && <span className="text-crimson">*</span>}
                         </label>
-                        <input type={f.type} required placeholder={f.placeholder}
+                        <input type={f.type} name={f.name} required={f.required} placeholder={f.placeholder}
                           className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all"
                           style={{ fontFamily: 'var(--font-body)' }} />
                       </div>
@@ -115,14 +150,14 @@ export function Contact() {
 
                   <div className="grid sm:grid-cols-2 gap-5">
                     {[
-                      { label: 'Email', type: 'email', placeholder: 'your@email.com' },
-                      { label: 'Phone', type: 'tel', placeholder: '+91 9999999999' },
+                      { label: 'Email', name: 'email', type: 'email', placeholder: 'your@email.com', required: true },
+                      { label: 'Phone', name: 'phone', type: 'tel', placeholder: '+91 9999999999', required: true },
                     ].map((f) => (
                       <div key={f.label}>
                         <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                          {f.label} <span className="text-crimson">*</span>
+                          {f.label} {f.required && <span className="text-crimson">*</span>}
                         </label>
-                        <input type={f.type} required placeholder={f.placeholder}
+                        <input type={f.type} name={f.name} required={f.required} placeholder={f.placeholder}
                           className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all"
                           style={{ fontFamily: 'var(--font-body)' }} />
                       </div>
@@ -147,7 +182,7 @@ export function Contact() {
                     <label className="block text-[0.74rem] tracking-[0.18em] uppercase text-ink-muted/75 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
                       Project Description <span className="text-crimson">*</span>
                     </label>
-                    <textarea required rows={4} placeholder="Briefly describe your requirement or project."
+                    <textarea required name="message" rows={4} placeholder="Briefly describe your requirement or project."
                       className="w-full px-4 py-3 border border-ink-faint/40 bg-surface-2 text-base text-ink placeholder-ink-faint/60 focus:outline-none focus:border-gold/50 transition-all resize-none"
                       style={{ fontFamily: 'var(--font-body)' }} />
                   </div>
@@ -164,14 +199,30 @@ export function Contact() {
                     </div>
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-crimson" style={{ fontFamily: 'var(--font-body)' }} role="alert">
+                      {error}
+                    </p>
+                  )}
+                  {sent && (
+                    <p className="text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }} role="status">
+                      Your email application should now be open with this enquiry ready to send. If nothing
+                      happened, write to{' '}
+                      <a href={`mailto:${ENQUIRY_TO}`} className="text-crimson underline underline-offset-2">
+                        {ENQUIRY_TO}
+                      </a>
+                      .
+                    </p>
+                  )}
+
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-sm font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light glow-crimson"
+                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-sm font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light"
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
-                    Submit Inquiry
+                    Submit Enquiry
                     <ArrowRight className="w-3.5 h-3.5" />
                   </motion.button>
                 </form>

@@ -5,20 +5,20 @@ import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Insights', href: '#insights' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'About Us', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Portfolio', href: '/#portfolio' },
+  { label: 'Insights', href: '/#insights' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 const serviceLinks = [
-  { label: 'Software and Web Development', href: '#services' },
-  { label: 'Media Production and Content', href: '#services' },
-  { label: 'Book and Digital Publishing', href: '#services' },
-  { label: 'Education and e-Learning', href: '#services', soon: true },
-  { label: 'Consulting and Training', href: '#services', soon: true },
+  { label: 'Software and Web Development', href: '/#services' },
+  { label: 'Media Production and Content', href: '/#services' },
+  { label: 'Book and Digital Publishing', href: '/#services' },
+  { label: 'Education and e-Learning', href: '/#services', soon: true },
+  { label: 'Consulting and Training', href: '/#services', soon: true },
 ]
 
 const policyLinks = [
@@ -184,14 +184,6 @@ export function Footer() {
                   Karnataka, India
                 </p>
               </div>
-              <a
-                href="/contact-support"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 border border-gold/50 text-gold-dark text-[0.68rem] font-bold tracking-[0.1em] uppercase hover:bg-gold hover:text-burgundy hover:border-gold transition-all duration-200"
-                style={{ fontFamily: 'var(--font-body)' }}
-              >
-                Contact Support
-                <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
             </div>
           </div>
         </div>
