@@ -8,6 +8,8 @@ const quickLinks = [
   { label: 'Home', href: '/#home' },
   { label: 'About Us', href: '/#about' },
   { label: 'Services', href: '/#services' },
+  { label: 'Platforms & Apps', href: '/#platforms' },
+  { label: 'Publications', href: '/#publications' },
   { label: 'Portfolio', href: '/#portfolio' },
   { label: 'Insights', href: '/#insights' },
   { label: 'Contact', href: '/#contact' },
@@ -83,7 +85,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sanctus%20Redemptor%20Png-2D8YUy0ali8CG4y6gJ6J2cj9AdE93J.png"
+              src="/logo.png"
               alt="Sanctus Redemptor"
               width={180}
               height={55}

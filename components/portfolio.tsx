@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { ArrowUpRight, ExternalLink, Code2, Film, BookOpen, ShoppingBag, MapPin } from 'lucide-react'
+import { ArrowUpRight, ExternalLink, Code2, Film, BookOpen, ShoppingBag, MapPin, Phone, Mail } from 'lucide-react'
 
 // TODO: replace with the live Holy Redeemer Store e-commerce URL
 const STORE_URL = '#'
@@ -24,6 +24,8 @@ type Project = {
   /* Optional storefront details — rendered only when present */
   linkLabel?: string
   address?: string
+  phone?: string
+  email?: string
   mapUrl?: string
   socials?: { label: string; href: string }[]
 }
@@ -92,22 +94,27 @@ const projects: Project[] = [
     num: '04',
     icon: ShoppingBag,
     type: 'Retail · Catholic Religious Articles',
-    title: 'Holy Redeemer Store',
-    client: 'Faith-inspired gifts for every home and every occasion.',
-    desc: 'Holy Redeemer Store offers a beautiful collection of Catholic religious articles designed to inspire faith, prayer, and devotion. Whether you are looking for something for your personal prayer space, a meaningful gift for a loved one, or religious articles for your parish or community, we invite you to discover items that bring faith into everyday life.',
+    title: 'Holy Redeemer Religious Store',
+    client: 'A Catholic apostolate of the Holy Redeemer Foundation',
+    desc: 'More than a religious store, it is a ministry that accompanies the faithful in their spiritual journey by providing authentic Catholic resources for prayer, worship, faith formation, and sacramental life. It serves individuals, families, parishes, religious communities, and ministry leaders \u2014 and features thoughtful sacramental gifts and customized candles for Baptism, First Holy Communion, Confirmation, Weddings, and other milestones in the life of faith.',
     bullets: [
-      'Religious statues',
-      'Sacred images and photo frames',
-      'Rosaries and crucifixes',
-      'Devotional articles',
-      'Catholic apparel and gifts',
+      'Catholic Books & Bibles',
+      'Rosaries, Statues & Devotional Articles',
+      'Novenas & Prayer Resources',
+      'Liturgical & Sacristy Supplies',
+      'Priestly Vestments & Sacred Vessels',
+      "Children's Faith Formation Resources",
+      'Sacramental Gifts & Customized Candles',
+      'Seasonal & Festive Religious Articles',
     ],
-    image: '/images/holy-shop.png',
-    alt: 'Holy Redeemer Store display of Catholic religious articles',
+    image: '/HRR/store-5.webp',
+    alt: 'Holy Redeemer Religious Store interior with Catholic books and devotional articles',
     status: 'NOW OPEN',
     link: STORE_URL,
     linkLabel: 'Shop Online',
-    address: 'Holy Ghost Church Campus\n9/1 Clarke Road, Thomas Town, Bangalore 560084',
+    phone: '+91 76250 88504',
+    email: 'store@theholyredeemer.org',
+    address: 'Holy Ghost Church Campus\nRichards Town, Bengaluru, Karnataka, India',
     mapUrl: 'https://maps.app.goo.gl/gy1urreE2gLjSnCN9?g_st=ic',
     socials: [
       { label: 'Facebook', href: '#' },
@@ -224,6 +231,31 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
                     )}
                   </div>
                 </div>
+
+                {(proj.phone || proj.email) && (
+                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                    {proj.phone && (
+                      <a
+                        href={`tel:${proj.phone.replace(/\s/g, '')}`}
+                        className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        <Phone className="w-4 h-4 text-gold-dark" />
+                        {proj.phone}
+                      </a>
+                    )}
+                    {proj.email && (
+                      <a
+                        href={`mailto:${proj.email}`}
+                        className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
+                        style={{ fontFamily: 'var(--font-body)' }}
+                      >
+                        <Mail className="w-4 h-4 text-gold-dark" />
+                        {proj.email}
+                      </a>
+                    )}
+                  </div>
+                )}
 
                 {proj.socials && (
                   <div>

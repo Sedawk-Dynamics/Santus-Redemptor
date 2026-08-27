@@ -10,7 +10,7 @@ export function PolicyHeader() {
       <div className="max-w-4xl mx-auto px-6 lg:px-0 h-20 flex items-center justify-between">
         <Link href="/" aria-label="Sanctus Redemptor Home" className="flex items-center gap-3">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sanctus%20Redemptor%20Png-2D8YUy0ali8CG4y6gJ6J2cj9AdE93J.png"
+            src="/logo.png"
             alt="Sanctus Redemptor"
             width={180}
             height={50}

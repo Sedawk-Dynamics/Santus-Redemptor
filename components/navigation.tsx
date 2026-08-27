@@ -8,8 +8,9 @@ import Image from 'next/image'
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
+  { label: 'Platforms', href: '#platforms' },
+  { label: 'Publications', href: '#publications' },
   { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Insights', href: '#insights' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -42,18 +43,17 @@ export function Navigation() {
               aria-label="Sanctus Redemptor Home"
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Sanctus%20Redemptor%20Png-2D8YUy0ali8CG4y6gJ6J2cj9AdE93J.png"
+                src="/logo.png"
                 alt="Sanctus Redemptor"
                 width={200}
                 height={50}
                 className="h-11 w-auto object-contain"
                 priority
-                loading="eager"
               />
             </motion.a>
 
             {/* Desktop links */}
-            <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+            <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
               {links.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -75,7 +75,7 @@ export function Navigation() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="hidden md:flex items-center gap-3"
+              className="hidden lg:flex items-center gap-3"
             >
               <a
                 href="#contact"
@@ -89,7 +89,7 @@ export function Navigation() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-ink transition-colors hover:text-crimson"
+              className="lg:hidden p-2 text-ink transition-colors hover:text-crimson"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}

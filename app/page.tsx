@@ -4,7 +4,9 @@ import { Hero } from '@/components/hero'
 import { About } from '@/components/about'
 import { Stats } from '@/components/stats'
 import { Services } from '@/components/services'
+import { Platforms } from '@/components/platforms'
 import { Portfolio } from '@/components/portfolio'
+import { Publications } from '@/components/publications'
 import { WhyUs } from '@/components/why-us'
 import { Team } from '@/components/team'
 import { Insights } from '@/components/insights'
@@ -21,7 +23,9 @@ export default function Home() {
       <About />
       <Stats />
       <Services />
+      <Platforms />
       <Portfolio />
+      <Publications />
       <WhyUs />
       <Team />
       <Insights />
