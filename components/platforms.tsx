@@ -25,8 +25,7 @@ const platforms: Platform[] = [
     name: 'Redemptio',
     tagline: 'Digital content platform',
     desc: 'A digital platform for Liguori Publications offering eBooks, audiobooks, videos, and podcasts.',
-    // TODO: supply a PNG or SVG — only a PDF logo is currently available
-    logo: null,
+    logo: '/brand/redemptio.png',
   },
   {
     name: 'Holy Redeemer TV',
@@ -71,12 +70,12 @@ function FadeUp({ children, delay = 0, className }: { children: React.ReactNode;
 
 export function Platforms() {
   return (
-    <section id="platforms" className="relative py-32 md:py-44 bg-void overflow-hidden">
+    <section id="platforms" className="relative py-20 md:py-28 bg-void overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-20">
+        <div className="grid lg:grid-cols-12 gap-12 mb-14">
           <div className="lg:col-span-7">
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">

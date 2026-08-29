@@ -125,6 +125,14 @@
     font-weight: 600;
     letter-spacing: -0.015em;
   }
+  /* Justified body copy. Only affects paragraphs that actually wrap —
+     single-line labels are unchanged, since the last line never justifies.
+     hyphens:auto prevents the word-gap rivers justification can cause. */
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
 }
 
 /* Scroll progress bar */

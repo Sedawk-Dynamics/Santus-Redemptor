@@ -65,7 +65,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 md:py-44 bg-surface-2 overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-28 bg-surface-2 overflow-hidden">
       {/* bg decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />

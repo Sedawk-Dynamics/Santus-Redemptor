@@ -39,12 +39,12 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export function Insights() {
   return (
-    <section id="insights" className="relative py-32 md:py-44 bg-surface overflow-hidden">
+    <section id="insights" className="relative py-20 md:py-28 bg-surface overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
           <div>
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">

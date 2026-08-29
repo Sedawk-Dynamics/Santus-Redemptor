@@ -46,7 +46,7 @@ export function About() {
   const imgParallax = useTransform(scrollYProgress, [0, 1], [-30, 30])
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-32 md:py-44 bg-surface overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-20 md:py-28 bg-surface overflow-hidden">
       {/* Subtle corner gradient */}
       <div
         className="absolute top-0 right-0 w-96 h-96 pointer-events-none opacity-30"
@@ -60,7 +60,7 @@ export function About() {
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Section label */}
         <FadeUp>
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex items-center gap-4 mb-12">
             <div className="section-line" />
             <span className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold" style={{ fontFamily: 'var(--font-body)' }}>About Us</span>
           </div>

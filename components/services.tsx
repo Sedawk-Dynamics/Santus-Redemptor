@@ -91,14 +91,14 @@ export function Services() {
   const [active, setActive] = useState<string | null>(null)
 
   return (
-    <section id="services" className="relative py-32 md:py-44 bg-surface-2 overflow-hidden">
+    <section id="services" className="relative py-20 md:py-28 bg-surface-2 overflow-hidden">
       {/* Decorative lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="mb-20 max-w-4xl">
+        <div className="mb-14 max-w-4xl">
           <FadeUp>
             <div className="flex items-center gap-4 mb-8">
               <div className="section-line" />

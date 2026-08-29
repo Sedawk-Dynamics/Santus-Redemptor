@@ -19,6 +19,8 @@ type Project = {
   bullets: string[]
   image: string
   alt: string
+  /* Real brand logo — replaces the generic icon chip when present */
+  logo?: string
   status: string
   link: string | null
   /* Optional storefront details — rendered only when present */
@@ -48,6 +50,7 @@ const projects: Project[] = [
     ],
     image: 'https://img.freepik.com/premium-photo/software-development-lifecycle-diagram-showing-stages-from-planning-deployment_995578-16683.jpg?w=2000',
     alt: 'Software development lifecycle diagram showing stages from planning to deployment',
+    logo: '/brand/redemptio.png',
     status: 'LIVE',
     link: 'redemptio.app',
   },
@@ -67,6 +70,7 @@ const projects: Project[] = [
     ],
     image: 'https://www.blendmylearning.com/wp-content/uploads/2024/05/learning-management-systems.jpg',
     alt: 'Learning management system interface used for online courses',
+    logo: '/brand/redacamy.png',
     status: 'IN DEVELOPMENT',
     link: 'redacamy.org',
   },
@@ -153,24 +157,36 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
       <div className="py-10 md:py-12">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Project image — alternates side for rhythm */}
-          <div className={`lg:col-span-4 ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+          <div className={`lg:col-span-3 ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm border border-gold/25">
               <Image
                 src={proj.image}
                 alt={proj.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
+                sizes="(max-width: 1024px) 100vw, 25vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
           </div>
 
           {/* Left */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-5">
             <div className="flex items-center gap-4 mb-5">
-              <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-2xl bg-gold text-burgundy ring-1 ring-gold/50 -rotate-6 group-hover:rotate-0 group-hover:scale-110 group-hover:bg-crimson group-hover:text-white group-hover:ring-crimson/40 transition-all duration-300">
-                <proj.icon className="w-5 h-5" strokeWidth={2.25} />
-              </div>
+              {proj.logo ? (
+                <div className="relative h-12 w-32 shrink-0">
+                  <Image
+                    src={proj.logo}
+                    alt={`${proj.title} logo`}
+                    fill
+                    sizes="128px"
+                    className="object-contain object-left"
+                  />
+                </div>
+              ) : (
+                <div className="flex items-center justify-center w-12 h-12 shrink-0 rounded-2xl bg-gold text-burgundy ring-1 ring-gold/50 -rotate-6 group-hover:rotate-0 group-hover:scale-110 group-hover:bg-crimson group-hover:text-white group-hover:ring-crimson/40 transition-all duration-300">
+                  <proj.icon className="w-5 h-5" strokeWidth={2.25} />
+                </div>
+              )}
               <span className="text-sm text-gold-dark font-mono tracking-widest">{proj.num}</span>
               <span className="text-[0.74rem] tracking-[0.15em] uppercase text-ink-muted/90" style={{ fontFamily: 'var(--font-body)' }}>{proj.type}</span>
             </div>
@@ -296,12 +312,12 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative py-32 md:py-44 bg-surface overflow-hidden">
+    <section id="portfolio" className="relative py-20 md:py-28 bg-surface overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
       <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
         {/* Header */}
-        <div className="grid lg:grid-cols-12 gap-12 mb-20">
+        <div className="grid lg:grid-cols-12 gap-12 mb-14">
           <div className="lg:col-span-7">
             <FadeUp>
               <div className="flex items-center gap-4 mb-8">
