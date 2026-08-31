@@ -113,7 +113,7 @@ const projects: Project[] = [
     ],
     image: '/HRR/store-5.webp',
     alt: 'Holy Redeemer Religious Store interior with Catholic books and devotional articles',
-    status: 'NOW OPEN',
+    status: 'ONGOING',
     link: STORE_URL,
     linkLabel: 'Shop Online',
     phone: '+91 76250 88504',
@@ -208,7 +208,7 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
               ))}
             </ul>
             <div className="flex items-center gap-4">
-              <span className={`text-[0.7rem] tracking-widest uppercase px-3 py-1 border font-medium ${proj.status === 'LIVE' ? 'border-emerald-500/30 text-emerald-400/80' : proj.status === 'IN DEVELOPMENT' ? 'border-gold/50 text-gold' : proj.status === 'NOW OPEN' ? 'border-crimson/50 text-crimson' : 'border-ink-faint/40 text-ink-muted/75'}`} style={{ fontFamily: 'var(--font-body)' }}>
+              <span className={`text-[0.7rem] tracking-widest uppercase px-3 py-1 border font-medium ${proj.status === 'LIVE' ? 'border-emerald-500/30 text-emerald-400/80' : proj.status === 'IN DEVELOPMENT' ? 'border-gold/50 text-gold' : 'border-ink-faint/40 text-ink-muted/75'}`} style={{ fontFamily: 'var(--font-body)' }}>
                 {proj.status}
               </span>
               {proj.link && (
@@ -224,80 +224,80 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
                 </a>
               )}
             </div>
-
-            {/* Storefront details */}
-            {proj.address && (
-              <div className="mt-6 pt-6 border-t border-ink-faint/25 space-y-4">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-ink-muted/85 whitespace-pre-line leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
-                      {proj.address}
-                    </p>
-                    {proj.mapUrl && (
-                      <a
-                        href={proj.mapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-1.5 text-sm text-crimson hover:text-crimson-light transition-colors"
-                        style={{ fontFamily: 'var(--font-body)' }}
-                      >
-                        View on Google Maps <ArrowUpRight className="w-3 h-3" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {(proj.phone || proj.email) && (
-                  <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-                    {proj.phone && (
-                      <a
-                        href={`tel:${proj.phone.replace(/\s/g, '')}`}
-                        className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
-                        style={{ fontFamily: 'var(--font-body)' }}
-                      >
-                        <Phone className="w-4 h-4 text-gold-dark" />
-                        {proj.phone}
-                      </a>
-                    )}
-                    {proj.email && (
-                      <a
-                        href={`mailto:${proj.email}`}
-                        className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
-                        style={{ fontFamily: 'var(--font-body)' }}
-                      >
-                        <Mail className="w-4 h-4 text-gold-dark" />
-                        {proj.email}
-                      </a>
-                    )}
-                  </div>
-                )}
-
-                {proj.socials && (
-                  <div>
-                    <p className="text-[0.72rem] tracking-[0.2em] uppercase text-ink-muted font-bold mb-2" style={{ fontFamily: 'var(--font-body)' }}>
-                      Stay Connected
-                    </p>
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                      {proj.socials.map((soc) => (
-                        <a
-                          key={soc.label}
-                          href={soc.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-ink-muted/85 hover:text-crimson transition-colors"
-                          style={{ fontFamily: 'var(--font-body)' }}
-                        >
-                          {soc.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
           </div>
         </div>
+
+      {/* Storefront details — full width so the three columns above stay aligned */}
+      {proj.address && (
+        <div className="mt-8 pt-6 border-t border-ink-faint/25 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex items-start gap-2.5">
+            <MapPin className="w-4 h-4 text-gold-dark shrink-0 mt-0.5" />
+            <div>
+              <p className="text-ink-muted/85 whitespace-pre-line leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
+                {proj.address}
+              </p>
+              {proj.mapUrl && (
+                <a
+                  href={proj.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 mt-1.5 text-sm text-crimson hover:text-crimson-light transition-colors"
+                  style={{ fontFamily: 'var(--font-body)' }}
+                >
+                  View on Google Maps <ArrowUpRight className="w-3 h-3" />
+                </a>
+              )}
+            </div>
+          </div>
+
+          {(proj.phone || proj.email) && (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              {proj.phone && (
+                <a
+                  href={`tel:${proj.phone.replace(/\s/g, '')}`}
+                  className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
+                  style={{ fontFamily: 'var(--font-body)' }}
+                >
+                  <Phone className="w-4 h-4 text-gold-dark" />
+                  {proj.phone}
+                </a>
+              )}
+              {proj.email && (
+                <a
+                  href={`mailto:${proj.email}`}
+                  className="inline-flex items-center gap-2 text-sm text-ink-muted hover:text-crimson transition-colors"
+                  style={{ fontFamily: 'var(--font-body)' }}
+                >
+                  <Mail className="w-4 h-4 text-gold-dark" />
+                  {proj.email}
+                </a>
+              )}
+            </div>
+          )}
+
+          {proj.socials && (
+            <div>
+              <p className="text-[0.72rem] tracking-[0.2em] uppercase text-ink-muted font-bold mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                Stay Connected
+              </p>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                {proj.socials.map((soc) => (
+                  <a
+                    key={soc.label}
+                    href={soc.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-ink-muted/85 hover:text-crimson transition-colors"
+                    style={{ fontFamily: 'var(--font-body)' }}
+                  >
+                    {soc.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
       </div>
 
       {/* Hover accent bar */}
