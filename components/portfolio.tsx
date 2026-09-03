@@ -153,7 +153,7 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
       style={{ x }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className={`group relative overflow-hidden transition-all duration-500 border-b border-ink-faint/40 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
+      className={`group relative transition-all duration-500 border-b border-ink-faint/40 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
     >
       <div className="py-8 md:py-10">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
