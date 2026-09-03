@@ -13,7 +13,7 @@ const services = [
     title: 'Software & Web Development',
     tagline: 'Engineered for performance. Built to scale.',
     desc: 'We build digital tools and platforms that individuals, families, students, and small organisations can use directly — standard off-the-shelf software, from initial requirements through deployment and long-term support.',
-    image: '/images/services-tech.png',
+    image: '/web-development-application-design-coding-and-programming-on-laptop-and-smartphone-concept-with-programming-language-and-program-code-and-layout-on-screen-vector.jpg',
     items: [
       'Custom software & systems architecture',
       'Corporate website design & development',
@@ -214,16 +214,31 @@ export function Services() {
 
         {/* Coming soon */}
         <FadeUp delay={0.3}>
-          <div className="mt-16 pt-12 border-t border-ink-faint/15">
-            <p className="text-[0.72rem] tracking-[0.25em] uppercase text-ink-muted font-bold mb-8" style={{ fontFamily: 'var(--font-body)' }}>Services in Development</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="mt-14 pt-10 border-t border-ink-faint/25">
+            <div className="flex items-center gap-4 mb-7">
+              <div className="section-line" />
+              <p className="text-[0.72rem] tracking-[0.25em] uppercase text-ink-muted font-bold" style={{ fontFamily: 'var(--font-body)' }}>Services in Development</p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {coming.map((item) => {
                 const Icon = item.icon
                 return (
-                  <div key={item.title} className="flex items-center gap-3 p-4 border border-dashed border-ink-faint/40 bg-surface/40">
-                    <Icon className="w-3.5 h-3.5 text-gold-dark shrink-0" />
-                    <span className="text-ink-muted/80" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>{item.title}</span>
-                    <span className="ml-auto text-[0.7rem] tracking-widest uppercase text-gold-dark border border-gold px-2 py-0.5" style={{ fontFamily: 'var(--font-body)' }}>Soon</span>
+                  <div
+                    key={item.title}
+                    className="group h-full flex flex-col p-5 bg-void ring-1 ring-ink-faint/25 hover:ring-crimson/40 transition-all duration-300"
+                  >
+                    {/* Fixed top row keeps every badge on the same line */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gold text-burgundy ring-1 ring-gold/50 -rotate-6 group-hover:rotate-0 group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-4.5 h-4.5" strokeWidth={2.25} />
+                      </div>
+                      <span className="text-[0.62rem] tracking-widest uppercase px-2 py-1 bg-gold text-burgundy font-bold" style={{ fontFamily: 'var(--font-body)' }}>
+                        Soon
+                      </span>
+                    </div>
+                    <h4 className="text-ink font-medium leading-snug" style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}>
+                      {item.title}
+                    </h4>
                   </div>
                 )
               })}
