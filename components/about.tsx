@@ -46,7 +46,7 @@ export function About() {
   const imgParallax = useTransform(scrollYProgress, [0, 1], [-30, 30])
 
   return (
-    <section id="about" ref={sectionRef} className="relative py-20 md:py-28 bg-surface overflow-hidden">
+    <section id="about" ref={sectionRef} className="relative py-14 md:py-20 bg-surface overflow-hidden">
       {/* Subtle corner gradient */}
       <div
         className="absolute top-0 right-0 w-96 h-96 pointer-events-none opacity-30"
@@ -111,6 +111,15 @@ export function About() {
                 ))}
               </div>
             </FadeUp>
+
+            {/* Registered entity — sits under the three pillars */}
+            <FadeUp delay={0.4}>
+              <div className="mt-10 p-5 border border-gold/35 bg-surface-2">
+                <p className="text-[0.72rem] text-ink-muted font-bold mb-1 tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Registered Entity</p>
+                <p className="text-base font-medium text-ink" style={{ fontFamily: 'var(--font-body)' }}>Sanctus Redemptor Private Limited</p>
+                <p className="text-ink-muted mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>CIN: U82990KA2025PTC203720 &nbsp;·&nbsp; GSTIN: 29ABQCS4225H1ZX</p>
+              </div>
+            </FadeUp>
           </div>
 
           {/* Right: values + image */}
@@ -155,14 +164,6 @@ export function About() {
               </div>
             </div>
 
-            {/* CIN badge */}
-            <FadeUp delay={0.4}>
-              <div className="p-5 border border-gold/35 bg-surface-2">
-                <p className="text-[0.72rem] text-ink-muted font-bold mb-1 tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-body)' }}>Registered Entity</p>
-                <p className="text-base font-medium text-ink" style={{ fontFamily: 'var(--font-body)' }}>Sanctus Redemptor Private Limited</p>
-                <p className="text-ink-muted mt-1" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>CIN: U82990KA2025PTC203720 &nbsp;·&nbsp; GSTIN: 29ABQCS4225H1ZX</p>
-              </div>
-            </FadeUp>
           </div>
         </div>
       </div>

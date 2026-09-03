@@ -12,7 +12,7 @@ export function CtaBanner() {
   const yDown = useTransform(scrollYProgress, [0, 1], [-40, 40])
 
   return (
-    <section ref={ref} className="relative py-20 md:py-28 bg-crimson overflow-hidden">
+    <section ref={ref} className="relative py-14 md:py-20 bg-crimson overflow-hidden">
       {/* Animated background shapes */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

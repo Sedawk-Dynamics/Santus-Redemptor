@@ -51,7 +51,7 @@ function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 export function WhyUs() {
   return (
-    <section id="why-us" className="relative py-20 md:py-28 bg-void overflow-hidden">
+    <section id="why-us" className="relative py-14 md:py-20 bg-void overflow-hidden">
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full opacity-60"

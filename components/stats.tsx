@@ -34,7 +34,7 @@ export function Stats() {
   return (
     <section
       ref={ref}
-      className="relative py-20 md:py-28 bg-void overflow-hidden"
+      className="relative py-10 md:py-14 bg-void overflow-hidden"
       aria-label="Company statistics"
     >
       {/* Gold rule top */}

@@ -27,7 +27,7 @@ function FadeUp({ children, delay = 0, className }: { children: React.ReactNode;
 
 export function Team() {
   return (
-    <section id="team" className="relative py-20 md:py-28 bg-surface-2 overflow-hidden">
+    <section id="team" className="relative py-14 md:py-20 bg-surface-2 overflow-hidden">
       {/* Subtle radial bg */}
       <div className="absolute inset-0 pointer-events-none opacity-40"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 80% 50%, rgba(167,15,16,0.06) 0%, transparent 70%)' }} />

@@ -67,7 +67,7 @@ function FadeUp({ children, delay = 0, className }: { children: React.ReactNode;
 
 export function Publications() {
   return (
-    <section id="publications" className="relative py-20 md:py-28 bg-surface overflow-hidden">
+    <section id="publications" className="relative py-14 md:py-20 bg-surface overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="relative z-10 max-w-[88rem] mx-auto px-6 lg:px-16">

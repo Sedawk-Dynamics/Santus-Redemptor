@@ -154,7 +154,7 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
       onHoverEnd={() => setHovered(false)}
       className={`group relative overflow-hidden transition-all duration-500 border-b border-ink-faint/40 last:border-b-0 ${hovered ? 'bg-surface-3' : ''}`}
     >
-      <div className="py-10 md:py-12">
+      <div className="py-8 md:py-10">
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Project image — alternates side for rhythm */}
           <div className={`lg:col-span-3 ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
@@ -312,10 +312,10 @@ function ProjectCard({ project: proj, index }: { project: Project; index: number
 
 export function Portfolio() {
   return (
-    <section id="portfolio" className="relative py-20 md:py-28 bg-surface overflow-hidden">
+    <section id="portfolio" className="relative py-14 md:py-20 bg-surface overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-      <div className="max-w-[88rem] mx-auto px-6 lg:px-16">
+      <div className="max-w-full mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="grid lg:grid-cols-12 gap-12 mb-14">
           <div className="lg:col-span-7">

@@ -91,7 +91,7 @@ export function Services() {
   const [active, setActive] = useState<string | null>(null)
 
   return (
-    <section id="services" className="relative py-20 md:py-28 bg-surface-2 overflow-hidden">
+    <section id="services" className="relative py-14 md:py-20 bg-surface-2 overflow-hidden">
       {/* Decorative lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
@@ -132,7 +132,7 @@ export function Services() {
                   <div className="py-8 px-0">
                     <div className="flex items-start justify-between gap-6">
                       <div className="flex items-start gap-6 flex-1">
-                        <span className="text-4xl font-semibold text-ink-faint/20 leading-none shrink-0 select-none mt-1" style={{ fontFamily: 'var(--font-sans)' }}>
+                        <span className="text-4xl font-bold text-crimson leading-none shrink-0 select-none mt-1" style={{ fontFamily: 'var(--font-sans)' }}>
                           {svc.label}
                         </span>
                         <div className="flex-1">
@@ -152,9 +152,9 @@ export function Services() {
                       <motion.div
                         animate={{ rotate: isActive ? 45 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="shrink-0 mt-1 w-7 h-7 rounded-full border border-ink-faint/35 flex items-center justify-center text-ink-muted/75 group-hover:border-gold/40 group-hover:text-gold transition-all"
+                        className="shrink-0 mt-1 w-10 h-10 rounded-full bg-crimson text-white ring-4 ring-crimson/15 flex items-center justify-center shadow-sm group-hover:bg-gold group-hover:text-burgundy group-hover:ring-gold/30 transition-all"
                       >
-                        <Plus className="w-3 h-3" />
+                        <Plus className="w-5 h-5" strokeWidth={3} />
                       </motion.div>
                     </div>
 
