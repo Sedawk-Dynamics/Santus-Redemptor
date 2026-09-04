@@ -30,6 +30,7 @@ const policyLinks = [
   { label: 'Terms and Conditions', href: '/terms' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Pricing Details', href: '/pricing' },
+  { label: 'How to Pay', href: '/payment' },
   { label: 'Contact Support', href: '/contact-support' },
 ]
 
@@ -154,7 +155,7 @@ export function Footer() {
                 <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-1" style={{ fontFamily: 'var(--font-body)' }}>Address</p>
                 <p className="text-ink-muted leading-relaxed" style={{ fontFamily: 'var(--font-body)', fontSize: '0.94rem' }}>
                   No. 9/1, Clarke Road,<br />
-                  Richards Town, Bengaluru – 560084<br />
+                  Richards Town, Bengaluru 560084<br />
                   Karnataka, India
                 </p>
               </div>

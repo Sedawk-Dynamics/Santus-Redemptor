@@ -77,6 +77,11 @@ export function About() {
             </FadeUp>
 
             <FadeUp delay={0.1}>
+              <p className="text-ink font-medium leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
+                SRPL provides software development, media production, publishing and digital services to
+                corporates, institutions, NGOs, professionals and individual customers. Custom projects are
+                undertaken against approved quotations or proposals and invoices.
+              </p>
               <p className="text-ink-muted leading-relaxed mb-5" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
                 Sanctus Redemptor Private Limited was incorporated in Bangalore to address a consistent gap in the market: organizations doing substantive work in education, social development, publishing, and the corporate sector often lacked access to integrated, high-quality technology and media services tailored to their specific operating context.
               </p>

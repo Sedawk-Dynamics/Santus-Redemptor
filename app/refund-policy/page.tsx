@@ -33,8 +33,7 @@ export default function RefundPolicyPage() {
 
       <PolicySection title="Online Sessions and Workshops">
         <p>
-          Customers may request cancellation or rescheduling at least [insert cancellation window, e.g., 24/48
-          hours] before the scheduled session. No refund is available for no-shows or cancellation requests raised
+          Customers may request cancellation or rescheduling at least 48 hours before the scheduled session. No refund is available for no-shows or cancellation requests raised
           after the stated window, unless SRPL cancels the session.
         </p>
       </PolicySection>
@@ -60,7 +59,7 @@ export default function RefundPolicyPage() {
       <PolicySection title="Physical Products, Where Applicable">
         <p>
           Return or replacement rules for physical products will be stated on the product page. Customers must
-          report damaged or incorrect items within [insert number] days of delivery with photos and order details.
+          report damaged or incorrect items within 7 days of delivery with photos and order details.
         </p>
       </PolicySection>
 
@@ -77,15 +76,14 @@ export default function RefundPolicyPage() {
 
       <PolicySection title="Review and Refund Timeline">
         <p>
-          We will review requests within [insert number] business days. Approved refunds will be initiated within
-          [insert number] business days and credited according to bank/payment gateway timelines.
+          We will review requests within 7 business days. Approved refunds will be initiated within
+          5 to 7 business days and credited according to bank/payment gateway timelines.
         </p>
       </PolicySection>
 
       <PolicySection title="Support Contact">
         <p>
-          office@srplblr.com | +91 7625088502 | No. 9/1, Clarke Road, Richards Town, St Thomas Town Post, Bangalore,
-          Karnataka 560005, India.
+          office@srplblr.com | +91 7625088502 | No. 9/1, Clarke Road, Richards Town, Bengaluru 560084, Karnataka, India.
         </p>
       </PolicySection>
     </PolicyPage>

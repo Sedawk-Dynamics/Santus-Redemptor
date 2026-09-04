@@ -82,7 +82,7 @@ export function Navigation() {
                 className="flex items-center gap-2 px-6 py-3 bg-crimson text-white text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light hover:scale-[1.03] transition-all duration-300 group"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
-                Book a Consultation
+                Request a Quote
                 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </motion.div>
@@ -137,7 +137,7 @@ export function Navigation() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-white text-base font-bold tracking-[0.1em] uppercase"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
-                Book a Consultation
+                Request a Quote
                 <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="mt-6 text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>

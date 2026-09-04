@@ -16,7 +16,7 @@ const details = [
   {
     Icon: MapPin,
     label: 'Registered office',
-    value: 'No. 9/1, Clarke Road, Richards Town, St Thomas Town Post, Bangalore, Karnataka 560005, India',
+    value: 'No. 9/1, Clarke Road, Richards Town, Bengaluru 560084, Karnataka, India',
   },
 ]
 

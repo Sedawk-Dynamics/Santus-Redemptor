@@ -40,6 +40,13 @@ export default function TermsPage() {
 
       <PolicySection title="Payments">
         <p>
+          For custom projects, work begins only after you approve a written quotation or proposal. We then raise
+          an invoice or payment request for the approved amount, or for the agreed milestone where a project is
+          invoiced in stages. An order or engagement is confirmed when payment against that invoice is received
+          and acknowledged by us in writing. Prices are quoted in Indian Rupees unless otherwise stated, and
+          applicable taxes are shown separately or stated as inclusive on each quotation and invoice.
+        </p>
+        <p>
           Online payments are processed through approved payment gateway providers. SRPL does not store card, UPI
           PIN or net-banking credentials on its website.
         </p>

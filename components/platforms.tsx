@@ -166,7 +166,7 @@ export function Platforms() {
               className="group inline-flex items-center gap-2 px-6 py-3 bg-crimson text-white text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light transition-all duration-300 shrink-0"
               style={{ fontFamily: 'var(--font-body)' }}
             >
-              Talk to us
+              Request a Quote
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>

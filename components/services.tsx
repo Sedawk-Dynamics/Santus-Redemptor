@@ -236,9 +236,12 @@ export function Services() {
                         Soon
                       </span>
                     </div>
-                    <h4 className="text-ink font-medium leading-snug" style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}>
+                    <h4 className="text-ink font-medium leading-snug mb-1.5" style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}>
                       {item.title}
                     </h4>
+                    <p className="text-ink-muted leading-snug" style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem' }}>
+                      Coming Soon — Not Currently Available for Purchase
+                    </p>
                   </div>
                 )
               })}

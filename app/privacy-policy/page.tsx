@@ -25,6 +25,12 @@ export default function PrivacyPolicyPage() {
 
       <PolicySection title="Payment Information">
         <p>
+          Payments on this website are collected by a third-party payment service provider authorised to operate
+          in India. Card, UPI and net banking credentials are entered on the provider&apos;s systems and are never
+          collected or stored by us. We make no claim to hold any payment security certification ourselves; the
+          relevant certifications are held by the payment service provider.
+        </p>
+        <p>
           Payments are processed through approved payment gateway providers. We may receive payment status, order
           ID, payment ID, refund ID and related transaction references. We do not store card numbers, UPI PINs, CVV
           or net-banking passwords on our website.
@@ -92,8 +98,7 @@ export default function PrivacyPolicyPage() {
 
       <PolicySection title="Company Details">
         <p>
-          Sanctus Redemptor Private Limited, No. 9/1, Clarke Road, Richards Town, St Thomas Town Post, Bangalore,
-          Karnataka 560005, India.
+          Sanctus Redemptor Private Limited, No. 9/1, Clarke Road, Richards Town, Bengaluru 560084, Karnataka, India.
         </p>
       </PolicySection>
     </PolicyPage>

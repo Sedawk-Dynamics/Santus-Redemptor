@@ -6,9 +6,6 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { ArrowUpRight, ExternalLink, Code2, Film, BookOpen, ShoppingBag, MapPin, Phone, Mail } from 'lucide-react'
 import { socialIcons } from '@/components/social-icons'
 
-// TODO: replace with the live Holy Redeemer Store e-commerce URL
-const STORE_URL = '#'
-
 type Project = {
   id: string
   num: string
@@ -115,8 +112,10 @@ const projects: Project[] = [
     image: '/HRR/store-5.webp',
     alt: 'Holy Redeemer Religious Store interior with Catholic books and devotional articles',
     status: 'ONGOING',
-    link: STORE_URL,
-    linkLabel: 'Shop Online',
+    // No online store yet and the merchant of record is not confirmed, so no
+    // purchase path is offered here — the address and phone below are the
+    // only way to buy.
+    link: null,
     phone: '+91 76250 88504',
     email: 'store@theholyredeemer.org',
     address: 'Holy Ghost Church Campus\nRichards Town, Bengaluru, Karnataka, India',

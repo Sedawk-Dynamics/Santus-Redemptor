@@ -18,7 +18,7 @@ export default function ShippingPolicyPage() {
       <PolicySection title="Digital Products and Subscriptions">
         <p>
           Access details, download links or login instructions are sent to the customer&apos;s registered email
-          address within [insert timeline] after successful payment, unless a different timeline is stated on the
+          address within 24 hours after successful payment, unless a different timeline is stated on the
           product page.
         </p>
       </PolicySection>
@@ -40,7 +40,7 @@ export default function ShippingPolicyPage() {
       <PolicySection title="Physical or Print Delivery, Where Applicable">
         <p>
           If any physical item is sold, shipping charges, courier method and estimated delivery timelines will be
-          shown before payment. Unless stated otherwise, domestic delivery within India may take [insert timeline]
+          shown before payment. Unless stated otherwise, domestic delivery within India may take 5 to 10
           business days after dispatch.
         </p>
       </PolicySection>

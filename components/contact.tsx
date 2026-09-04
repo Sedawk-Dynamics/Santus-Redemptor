@@ -91,7 +91,8 @@ export function Contact() {
             </FadeUp>
             <FadeUp delay={0.15}>
               <p className="text-ink-muted leading-relaxed mb-12" style={{ fontFamily: 'var(--font-body)', fontSize: '1.08rem' }}>
-                We are ready to assess your requirements and propose a solution. Tell us about your project and we will get back to you within one business day.
+                We are ready to assess your requirements and propose a solution. Tell us about your project and we will get back to you within one business day. Custom work proceeds against an approved quotation and invoice — see{' '}
+                <a href="/payment" className="text-crimson hover:text-crimson-light underline underline-offset-2">how payment works</a>.
               </p>
             </FadeUp>
 
@@ -100,7 +101,7 @@ export function Contact() {
               {[
                 { icon: Mail,   label: 'Email',          value: 'office@srplblr.com',                                       href: 'mailto:office@srplblr.com' },
                 { icon: Phone,  label: 'Phone',          value: '+91 7625088502',                                            href: 'tel:+917625088502' },
-                { icon: MapPin, label: 'Address',        value: 'No. 9/1, Clarke Road, Richards Town,\nBangalore – 560084', href: null },
+                { icon: MapPin, label: 'Address',        value: 'No. 9/1, Clarke Road, Richards Town,\nBengaluru 560084, Karnataka, India', href: null },
                 { icon: Clock,  label: 'Business Hours', value: 'Mon–Fri, 8:00 AM – 8:00 PM IST',                           href: null },
               ].map((c, i) => {
                 const Icon = c.icon
