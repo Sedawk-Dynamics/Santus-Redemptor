@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -11,12 +12,20 @@ const links = [
   { label: 'Platforms', href: '#platforms' },
   { label: 'Publications', href: '#publications' },
   { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Careers', href: '/careers', route: true },
   { label: 'Contact', href: '#contact' },
 ]
 
 export function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { scrollY } = useScroll()
+  const pathname = usePathname()
+
+  // The section links are in-page anchors on the homepage, so away from it they
+  // need to point back at the homepage before the hash.
+  const onHome = pathname === '/'
+  const resolve = (link: { href: string; route?: boolean }) =>
+    link.route || onHome ? link.href : `/${link.href}`
 
   const navBg = useTransform(
     scrollY,
@@ -35,7 +44,7 @@ export function Navigation() {
           <div className="flex items-center justify-between h-20 py-3">
             {/* Logo */}
             <motion.a
-              href="#"
+              href="/"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -53,11 +62,11 @@ export function Navigation() {
             </motion.a>
 
             {/* Desktop links */}
-            <nav className="hidden lg:flex items-center gap-6" aria-label="Primary navigation">
+            <nav className="hidden lg:flex items-center gap-5" aria-label="Primary navigation">
               {links.map((link, i) => (
                 <motion.a
                   key={link.href}
-                  href={link.href}
+                  href={resolve(link)}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 * i }}
@@ -78,7 +87,7 @@ export function Navigation() {
               className="hidden lg:flex items-center gap-3"
             >
               <a
-                href="#contact"
+                href={onHome ? '#contact' : '/#contact'}
                 className="flex items-center gap-2 px-6 py-3 bg-crimson text-white text-sm font-bold tracking-[0.1em] uppercase hover:bg-crimson-light hover:scale-[1.03] transition-all duration-300 group"
                 style={{ fontFamily: 'var(--font-body)' }}
               >
@@ -117,7 +126,7 @@ export function Navigation() {
               {links.map((link, i) => (
                 <motion.a
                   key={link.href}
-                  href={link.href}
+                  href={resolve(link)}
                   onClick={() => setMenuOpen(false)}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -132,7 +141,7 @@ export function Navigation() {
 
             <div className="mt-auto">
               <a
-                href="#contact"
+                href={onHome ? '#contact' : '/#contact'}
                 onClick={() => setMenuOpen(false)}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-crimson text-white text-base font-bold tracking-[0.1em] uppercase"
                 style={{ fontFamily: 'var(--font-body)' }}

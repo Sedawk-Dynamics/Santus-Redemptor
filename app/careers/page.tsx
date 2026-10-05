@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Mail } from 'lucide-react'
-import { PolicyHeader } from '@/components/policy-page'
+import { Navigation } from '@/components/navigation'
+import { ScrollProgress } from '@/components/scroll-progress'
 import { Footer } from '@/components/footer'
 import { CareersList } from '@/components/careers-list'
 import { jobs, CAREERS_EMAIL } from './jobs'
@@ -47,9 +48,11 @@ function jobPostingLd() {
 export default function CareersPage() {
   return (
     <div className="bg-void min-h-screen">
-      <PolicyHeader />
+      <ScrollProgress />
+      <Navigation />
 
-      <main className="max-w-5xl mx-auto px-6 lg:px-0 py-16 lg:py-24">
+      {/* pt clears the fixed h-20 header */}
+      <main className="max-w-5xl mx-auto px-6 lg:px-0 pt-36 pb-16 lg:pt-40 lg:pb-24">
         <span
           className="text-[0.74rem] tracking-[0.28em] uppercase text-gold-dark font-bold"
           style={{ fontFamily: 'var(--font-body)' }}
