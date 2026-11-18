@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Cancellation and Refund Policy – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Cancellation and Refund Policy',
+  path: '/refund-policy',
   description:
     'Cancellation and refund policy for purchases made on www.srplblr.com, covering digital products, sessions, subscriptions and publishing services.',
-}
+})
 
 export default function RefundPolicyPage() {
   return (

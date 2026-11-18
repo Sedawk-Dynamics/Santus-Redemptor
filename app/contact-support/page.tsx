@@ -1,13 +1,14 @@
-import type { Metadata } from 'next'
 import { Mail, Phone, Clock, MapPin } from 'lucide-react'
 import { PolicyPage } from '@/components/policy-page'
 import { SupportForm } from '@/components/support-form'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Contact Customer Support – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Contact Customer Support',
+  path: '/contact-support',
   description:
     'Get help with orders, payments, access, delivery, invoices, cancellations, refunds or service questions from Sanctus Redemptor Private Limited.',
-}
+})
 
 const details = [
   { Icon: Mail, label: 'Email', value: 'office@srplblr.com', href: 'mailto:office@srplblr.com' },

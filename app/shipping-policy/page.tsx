@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Shipping and Delivery Policy – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Shipping and Delivery Policy',
+  path: '/shipping-policy',
   description:
     'Shipping and delivery policy for digital products, online services, subscriptions, media and publishing services offered by Sanctus Redemptor Private Limited.',
-}
+})
 
 export default function ShippingPolicyPage() {
   return (

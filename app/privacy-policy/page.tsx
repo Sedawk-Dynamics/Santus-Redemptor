@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Privacy Policy',
+  path: '/privacy-policy',
   description:
     'Privacy Policy explaining what personal data Sanctus Redemptor Private Limited collects, why it is collected, how it is used, and how to contact us regarding your data.',
-}
+})
 
 export default function PrivacyPolicyPage() {
   return (

@@ -1,13 +1,14 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Pricing Details – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Pricing Details',
+  path: '/pricing',
   description:
     'Pricing details for Sanctus Redemptor products, services and subscriptions available for direct online purchase.',
-}
+})
 
 export default function PricingPage() {
   return (

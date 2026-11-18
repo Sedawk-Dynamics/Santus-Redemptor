@@ -16,8 +16,14 @@ export function Hero() {
       ref={sectionRef}
       id="home"
       className="relative min-h-screen flex flex-col overflow-hidden bg-void"
-      aria-label="Hero section"
+      aria-labelledby="hero-heading"
     >
+      {/* The hero is video-only, so the page's one h1 lives here for search
+          engines and screen readers without changing the design. */}
+      <h1 id="hero-heading" className="sr-only">
+        Sanctus Redemptor – software and web development, media production and book and digital
+        publishing in Bangalore
+      </h1>
       {/* ── Full-bleed background video with parallax ── */}
       <motion.div
         style={{ y: bgY }}

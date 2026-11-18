@@ -14,6 +14,8 @@ export type Job = {
   subject: string
   /** What the application email should contain, beyond a resume. */
   sendWith: string
+  /** ISO date the role was posted. Required by Google Jobs. */
+  datePosted: string
 }
 
 export const CAREERS_EMAIL = 'careers@srplblr.com'
@@ -60,6 +62,7 @@ export const jobs: Job[] = [
     ],
     subject: 'Application – Manager, Digital Technology & Platforms',
     sendWith: 'your resume and a short note on relevant project experience',
+    datePosted: '2026-10-05',
   },
   {
     id: 'digital-content-lead',
@@ -101,6 +104,7 @@ export const jobs: Job[] = [
     subject: 'Application – Digital Content Lead',
     sendWith:
       'your resume, a portfolio or samples of past content/growth work, and a short note on relevant experience',
+    datePosted: '2026-10-05',
   },
   {
     id: 'digital-content-community-associate',
@@ -137,5 +141,6 @@ export const jobs: Job[] = [
     ],
     subject: 'Application – Content & Community Associate',
     sendWith: 'your resume and a short note on relevant experience',
+    datePosted: '2026-10-05',
   },
 ]

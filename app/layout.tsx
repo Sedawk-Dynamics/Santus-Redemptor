@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
+import { LEGAL_NAME, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
 const _cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -17,10 +18,20 @@ const _inter = Inter({
   display: 'swap',
 })
 
+const HOME_TITLE = 'Sanctus Redemptor – Technology, Media & Publishing in Bangalore'
+
 export const metadata: Metadata = {
-  title: 'Sanctus Redemptor – Technology, Media & Publishing',
-  description:
-    'Sanctus Redemptor Private Limited is a Bangalore-based technology, media, and education company delivering digital learning, media, and community solutions for individuals, families, corporates, NGOs, and educational institutions across India and internationally.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: HOME_TITLE,
+    // Inner pages set just their own name; this adds the brand.
+    template: `%s – ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  verification: {
+    google: 'ZCWjPOQr7O4Gh37ck8QfXVcBfczxtpvte_H8vCWrtw4',
+  },
   keywords: [
     'Sanctus Redemptor',
     'SRPL',
@@ -31,18 +42,31 @@ export const metadata: Metadata = {
     'e-learning',
     'Liguorian magazine',
   ],
-  authors: [{ name: 'Sanctus Redemptor Private Limited' }],
-  creator: 'Sanctus Redemptor Private Limited',
+  authors: [{ name: LEGAL_NAME }],
+  creator: LEGAL_NAME,
+  publisher: LEGAL_NAME,
+  // Share image and icons come from the file conventions in app/:
+  // opengraph-image.jpg, favicon.ico, icon.png, apple-icon.png.
   openGraph: {
-    title: 'Sanctus Redemptor – Technology, Media & Publishing',
+    title: HOME_TITLE,
     description:
-      'A Bangalore-based multi-disciplinary technology and media company serving corporates, NGOs, and educational institutions across India and internationally.',
-    url: 'https://srplblr.com',
-    siteName: 'Sanctus Redemptor',
+      'A Bangalore-based technology, media and publishing company serving corporates, NGOs and educational institutions across India and internationally.',
+    url: '/',
+    siteName: SITE_NAME,
     locale: 'en_IN',
     type: 'website',
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: 'summary_large_image',
+    title: HOME_TITLE,
+    description:
+      'A Bangalore-based technology, media and publishing company serving corporates, NGOs and educational institutions across India and internationally.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+  },
 }
 
 export const viewport: Viewport = {
@@ -56,7 +80,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="bg-background scroll-smooth">
+    <html lang="en-IN" className="bg-background scroll-smooth">
       <body
         className={`${_cormorant.variable} ${_inter.variable} antialiased bg-background text-foreground`}
         style={{ fontFamily: 'var(--font-body)' }}

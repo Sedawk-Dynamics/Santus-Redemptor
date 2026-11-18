@@ -1,13 +1,14 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'How to Pay – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'How to Pay',
+  path: '/payment',
   description:
     'How payments work at Sanctus Redemptor Private Limited: enquiry, requirement discussion, quotation, approval, invoice, payment and delivery. Payment methods, taxes and refund references.',
-}
+})
 
 const customFlow = [
   { step: '01', title: 'Enquiry', desc: 'You contact us through the website enquiry form, email or phone with your requirement.' },

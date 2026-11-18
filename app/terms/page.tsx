@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
 import { PolicyPage, PolicySection } from '@/components/policy-page'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Terms and Conditions – Sanctus Redemptor',
+export const metadata = pageMetadata({
+  title: 'Terms and Conditions',
+  path: '/terms',
   description:
     'Terms and Conditions governing the use of www.srplblr.com and purchases of digital products, sessions, subscriptions and services from Sanctus Redemptor Private Limited.',
-}
+})
 
 export default function TermsPage() {
   return (
