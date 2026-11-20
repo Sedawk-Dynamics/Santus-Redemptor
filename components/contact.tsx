@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
+import { submitForm } from '@/lib/web3forms'
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -31,11 +32,12 @@ export function Contact() {
   const [selected, setSelected] = useState('')
   const [contact, setContact] = useState<'email' | 'phone'>('email')
   const [error, setError] = useState('')
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    const data = new FormData(form)
     const get = (k: string) => String(data.get(k) ?? '').trim()
 
     if (!selected) {
@@ -43,25 +45,28 @@ export function Contact() {
       return
     }
     setError('')
+    setStatus('sending')
 
-    const body = [
-      `Name: ${get('name')}`,
-      `Organization: ${get('organization') || '\u2014'}`,
-      `Email: ${get('email')}`,
-      `Phone: ${get('phone')}`,
-      `Service area: ${selected}`,
-      `Preferred contact method: ${contact}`,
-      '',
-      'Project description:',
-      get('message'),
-    ].join('\n')
-
-    window.location.href =
-      `mailto:${ENQUIRY_TO}` +
-      `?subject=${encodeURIComponent('Website enquiry \u2014 ' + selected)}` +
-      `&body=${encodeURIComponent(body)}`
-
-    setSent(true)
+    try {
+      await submitForm({
+        subject: `Website enquiry \u2014 ${selected}`,
+        name: get('name'),
+        email: get('email'),
+        phone: get('phone'),
+        organization: get('organization') || '\u2014',
+        service_area: selected,
+        preferred_contact_method: contact,
+        message: get('message'),
+        botcheck: data.get('botcheck') === 'on',
+      })
+      form.reset()
+      setSelected('')
+      setContact('email')
+      setStatus('sent')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Your enquiry could not be sent.')
+      setStatus('idle')
+    }
   }
 
   return (
@@ -133,6 +138,8 @@ export function Contact() {
                 <h3 className="text-2xl font-semibold text-ink mb-8" style={{ fontFamily: 'var(--font-sans)' }}>Submit an Enquiry</h3>
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
+                  {/* Honeypot: hidden from people, ticked by spam bots; Web3Forms drops those. */}
+                  <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                   <div className="grid sm:grid-cols-2 gap-5">
                     {[
                       { label: 'Full Name', name: 'name', type: 'text', placeholder: 'Your full name', required: true },
@@ -202,17 +209,16 @@ export function Contact() {
 
                   {error && (
                     <p className="text-sm text-crimson" style={{ fontFamily: 'var(--font-body)' }} role="alert">
-                      {error}
-                    </p>
-                  )}
-                  {sent && (
-                    <p className="text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }} role="status">
-                      Your email application should now be open with this enquiry ready to send. If nothing
-                      happened, write to{' '}
-                      <a href={`mailto:${ENQUIRY_TO}`} className="text-crimson underline underline-offset-2">
+                      {error} You can also write to{' '}
+                      <a href={`mailto:${ENQUIRY_TO}`} className="underline underline-offset-2">
                         {ENQUIRY_TO}
                       </a>
                       .
+                    </p>
+                  )}
+                  {status === 'sent' && (
+                    <p className="text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }} role="status">
+                      Thank you — your enquiry has been sent. We will get back to you within one business day.
                     </p>
                   )}
 
@@ -220,10 +226,11 @@ export function Contact() {
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-sm font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light"
+                    disabled={status === 'sending'}
+                    className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-crimson text-void text-sm font-medium tracking-[0.14em] uppercase transition-all duration-300 hover:bg-crimson-light disabled:opacity-60 disabled:cursor-wait"
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
-                    Submit Enquiry
+                    {status === 'sending' ? 'Sending…' : 'Submit Enquiry'}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </motion.button>
                 </form>

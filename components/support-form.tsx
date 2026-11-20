@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { submitForm } from '@/lib/web3forms'
 
 const helpTopics = [
   { label: 'Order or access', value: 'order-access' },
@@ -33,7 +34,7 @@ export function SupportForm() {
   const [topic, setTopic] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!topic) {
       setError('Please choose what you need help with.')
@@ -46,37 +47,35 @@ export function SupportForm() {
     const get = (k: string) => String(data.get(k) ?? '').trim()
     const label = helpTopics.find((t) => t.value === topic)?.label ?? topic
 
-    const body = [
-      `Name: ${get('full-name')}`,
-      `Email: ${get('email')}`,
-      `Phone: ${get('phone')}`,
-      `Order / Payment ID: ${get('order-id') || '\u2014'}`,
-      `Organisation: ${get('organisation') || '\u2014'}`,
-      `Topic: ${label}`,
-      '',
-      'Message:',
-      get('message'),
-    ].join('\n')
-
-    window.location.href =
-      `mailto:${SUPPORT_TO}` +
-      `?subject=${encodeURIComponent('Support request \u2014 ' + label)}` +
-      `&body=${encodeURIComponent(body)}`
-
-    setSubmitting(false)
-    setSubmitted(true)
+    try {
+      await submitForm({
+        subject: `Support request \u2014 ${label}`,
+        name: get('full-name'),
+        email: get('email'),
+        phone: get('phone'),
+        order_or_payment_id: get('order-id') || '\u2014',
+        organisation: get('organisation') || '\u2014',
+        topic: label,
+        message: get('message'),
+        botcheck: data.get('botcheck') === 'on',
+      })
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Your request could not be sent.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
     return (
-      <div className="border border-gold/40 bg-surface p-10 flex flex-col items-center text-center gap-4">
+      <div className="border border-gold/40 bg-surface p-10 flex flex-col items-center text-center gap-4" role="status">
         <CheckCircle2 className="w-8 h-8 text-crimson" />
         <h3 className="text-xl font-medium text-ink" style={{ fontFamily: 'var(--font-sans)' }}>
-          Your request is ready to send
+          Your request has been sent
         </h3>
         <p className="text-base text-ink-muted max-w-md" style={{ fontFamily: 'var(--font-body)' }}>
-          Your email application should now be open with this request ready to send. Once you send it, our
-          team will reply to the email address you provided. For urgent matters, call{' '}
+          Thank you. Our team will reply to the email address you provided. For urgent matters, call{' '}
           <a href="tel:+917625088502" className="text-crimson hover:text-crimson-light underline underline-offset-2">
             +91 7625088502
           </a>
@@ -88,6 +87,8 @@ export function SupportForm() {
 
   return (
     <form onSubmit={handleSubmit} className="border border-ink-faint/35 bg-surface p-6 sm:p-10">
+      {/* Honeypot: hidden from people, ticked by spam bots; Web3Forms drops those. */}
+      <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <FieldGroup>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field>
@@ -143,7 +144,11 @@ export function SupportForm() {
 
         {error && (
           <p className="text-sm text-crimson" role="alert" style={{ fontFamily: 'var(--font-body)' }}>
-            {error}
+            {error} You can also write to{' '}
+            <a href={`mailto:${SUPPORT_TO}`} className="underline underline-offset-2">
+              {SUPPORT_TO}
+            </a>
+            .
           </p>
         )}
 
