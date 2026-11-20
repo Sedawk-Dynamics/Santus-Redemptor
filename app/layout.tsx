@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { LEGAL_NAME, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
@@ -85,6 +86,19 @@ export default function RootLayout({
         className={`${_cormorant.variable} ${_inter.variable} antialiased bg-background text-foreground`}
         style={{ fontFamily: 'var(--font-body)' }}
       >
+        {/* Google tag (GTM-KB48QM5X). beforeInteractive puts these in <head>
+            ahead of Next's own scripts. Root layout only, so once per page. */}
+        <Script
+          id="google-tag"
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-KB48QM5X"
+          strategy="beforeInteractive"
+          async
+        />
+        <Script id="google-tag-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`}
+        </Script>
         {children}
       </body>
     </html>
