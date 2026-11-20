@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import Script from 'next/script'
+import { CookieConsent } from '@/components/cookie-consent'
 import './globals.css'
 import { LEGAL_NAME, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from '@/lib/site'
 
@@ -87,19 +88,27 @@ export default function RootLayout({
         style={{ fontFamily: 'var(--font-body)' }}
       >
         {/* Google tag (GTM-KB48QM5X). beforeInteractive puts these in <head>
-            ahead of Next's own scripts. Root layout only, so once per page. */}
+            ahead of Next's own scripts. Root layout only, so once per page.
+            Consent Mode defaults to denied (no analytics cookies) and is set
+            before gtm.js loads; a saved choice from the cookie banner
+            (components/cookie-consent.tsx) is re-applied here. */}
+        <Script id="google-tag-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+window.gtag = gtag;
+var c = 'denied';
+try { if (localStorage.getItem('srpl-cookie-consent') === 'granted') c = 'granted'; } catch (e) {}
+gtag('consent', 'default', { analytics_storage: c, ad_storage: c, ad_user_data: c, ad_personalization: c, wait_for_update: 500 });
+gtag('js', new Date());`}
+        </Script>
         <Script
           id="google-tag"
           src="https://www.googletagmanager.com/gtm.js?id=GTM-KB48QM5X"
           strategy="beforeInteractive"
           async
         />
-        <Script id="google-tag-init" strategy="beforeInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());`}
-        </Script>
         {children}
+        <CookieConsent />
       </body>
     </html>
   )

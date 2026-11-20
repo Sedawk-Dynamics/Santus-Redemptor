@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { LinkedInIcon, YouTubeIcon, InstagramIcon, FacebookIcon } from '@/components/social-icons'
+import { CookieSettingsLink } from '@/components/cookie-consent'
 
 const quickLinks = [
   { label: 'Home', href: '/#home' },
@@ -174,6 +175,7 @@ export function Footer() {
             <p className="text-ink-muted" style={{ fontFamily: 'var(--font-body)', fontSize: '0.84rem' }}>GSTIN: 29ABQCS4225H1ZX</p>
             <a href="/privacy-policy" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>Privacy Policy</a>
             <a href="/terms" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }}>Terms of Use</a>
+            <CookieSettingsLink className="text-ink-muted hover:text-ink transition-colors cursor-pointer" style={{ fontFamily: 'var(--font-body)', fontSize: '0.86rem' }} />
           </div>
         </div>
       </div>

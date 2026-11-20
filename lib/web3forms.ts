@@ -13,16 +13,55 @@ const ACCESS_KEY = '373345a0-2c2b-4b6e-b42d-cfa14f0ba8f2'
 /** Every field becomes a line in the email; `subject` sets the email subject. */
 export type FormFields = { subject: string } & Record<string, string | boolean>
 
-export async function submitForm(fields: FormFields): Promise<void> {
+/** Fields allowed to span several lines; everything else is single-line. */
+const MULTILINE = new Set(['message'])
+const MAX_LINE = 200
+const MAX_MESSAGE = 5000
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
+
+/**
+ * Normalise what goes into the email. Line breaks are stripped from
+ * single-line fields (subject, name, email, phone...) so they cannot inject
+ * extra email headers, control characters are removed, and lengths are capped.
+ * Web3Forms escapes HTML in its notification emails; this is defence in depth,
+ * since anything in the browser can be bypassed by posting to the API directly.
+ */
+// Built from strings: as regex literals the bundler emits U+2028/2029 raw,
+// which terminates the literal and breaks the chunk.
+const CONTROL_CHARS = new RegExp('[\\u0000-\\u0008\\u000B\\u000C\\u000E-\\u001F\\u007F]', 'g')
+const LINE_BREAKS = new RegExp('[\\r\\n\\u2028\\u2029]+', 'g')
+
+function clean(key: string, value: string | boolean): string | boolean {
+  if (typeof value === 'boolean') return value
+  let v = value.replace(CONTROL_CHARS, '')
+  if (MULTILINE.has(key)) return v.trim().slice(0, MAX_MESSAGE)
+  v = v.replace(LINE_BREAKS, ' ')
+  return v.trim().slice(0, MAX_LINE)
+}
+
+export async function submitForm(fields: FormFields, captchaToken: string): Promise<void> {
+  if (!captchaToken) {
+    throw new Error('Please complete the captcha check.')
+  }
+  const cleaned = Object.fromEntries(
+    Object.entries(fields).map(([k, v]) => [k, clean(k, v)]),
+  ) as FormFields
+
+  if (typeof cleaned.email === 'string' && !EMAIL.test(cleaned.email)) {
+    throw new Error('Please enter a valid email address.')
+  }
+
   let res: Response
   try {
     res = await fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
+        ...cleaned,
+        // Sent as-is: the token is long and must not be cleaned or truncated.
+        'h-captcha-response': captchaToken,
         access_key: ACCESS_KEY,
         from_name: 'Sanctus Redemptor website',
-        ...fields,
       }),
     })
   } catch {

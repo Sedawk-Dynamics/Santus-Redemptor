@@ -53,6 +53,15 @@ export default function PrivacyPolicyPage() {
         </p>
       </PolicySection>
 
+      <PolicySection title="Cookies and Analytics">
+        <p>
+          With your consent, we use Google Analytics (through Google Tag Manager) to understand how visitors use
+          this website. Analytics cookies are not set unless you choose &ldquo;Accept analytics&rdquo; in the cookie
+          banner. You can change your choice at any time using &ldquo;Cookie Settings&rdquo; at the bottom of any
+          page.
+        </p>
+      </PolicySection>
+
       <PolicySection title="Sharing of Information">
         <p>
           We may share information with payment gateway providers, hosting providers, email/SMS/WhatsApp service
