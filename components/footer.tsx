@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
-import { LinkedInIcon, YouTubeIcon, InstagramIcon, FacebookIcon } from '@/components/social-icons'
+import { socialIcons } from '@/components/social-icons'
 import { CookieSettingsLink } from '@/components/cookie-consent'
+import { SOCIAL_LINKS } from '@/lib/site'
 
 const quickLinks = [
   { label: 'Home', href: '/#home' },
@@ -36,12 +37,7 @@ const policyLinks = [
   { label: 'Contact Support', href: '/contact-support' },
 ]
 
-const socials = [
-  { Icon: LinkedInIcon, label: 'LinkedIn', href: '#' },
-  { Icon: YouTubeIcon, label: 'YouTube', href: '#' },
-  { Icon: InstagramIcon, label: 'Instagram', href: '#' },
-  { Icon: FacebookIcon, label: 'Facebook', href: '#' },
-]
+const socials = SOCIAL_LINKS.map((s) => ({ ...s, Icon: socialIcons[s.label] }))
 
 export function Footer() {
   return (
@@ -74,9 +70,11 @@ export function Footer() {
                 <motion.a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="me noopener noreferrer"
                   whileHover={{ y: -6, scale: 1.06 }}
                   className="w-10 h-10 rounded-xl bg-surface-2 ring-1 ring-ink-faint/25 flex items-center justify-center text-ink-muted hover:text-burgundy hover:bg-gold hover:ring-gold transition-all duration-200"
-                  aria-label={s.label}
+                  aria-label={`Sanctus Redemptor on ${s.label}`}
                 >
                   <s.Icon className="w-3 h-3" />
                 </motion.a>

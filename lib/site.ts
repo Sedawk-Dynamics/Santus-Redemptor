@@ -21,5 +21,13 @@ export const ADDRESS = {
   addressCountry: 'IN',
 }
 
-export const CIN = 'U82990KA2025PTC203720'
+/** Official profiles. Used by the footer, Organization `sameAs` and llms.txt. */
+export const SOCIAL_LINKS = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sanctus-redemptor' },
+  { label: 'Instagram', href: 'https://www.instagram.com/sanctus.redemptor/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/sanctusredemptor/' },
+  { label: 'X', href: 'https://x.com/srplblr' },
+] as const
+
+export const CIN ='U82990KA2025PTC203720'
 export const GSTIN = '29ABQCS4225H1ZX'

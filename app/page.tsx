@@ -24,6 +24,7 @@ import {
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
+  SOCIAL_LINKS,
 } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -49,6 +50,8 @@ const organizationLd = {
       foundingDate: '2025',
       address: { '@type': 'PostalAddress', ...ADDRESS },
       areaServed: ['IN', 'US'],
+      // Official profiles, so search engines and AI tools link them to the company.
+      sameAs: SOCIAL_LINKS.map((s) => s.href),
       // Mirrors components/services.tsx and components/platforms.tsx.
       knowsAbout: [
         'Software development',

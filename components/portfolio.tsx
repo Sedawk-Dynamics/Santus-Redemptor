@@ -123,7 +123,6 @@ const projects: Project[] = [
     socials: [
       { label: 'Facebook', href: '#' },
       { label: 'Instagram', href: '#' },
-      { label: 'YouTube', href: '#' },
     ],
   },
 ]

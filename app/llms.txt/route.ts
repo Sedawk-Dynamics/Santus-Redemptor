@@ -6,6 +6,7 @@ import {
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
+  SOCIAL_LINKS,
 } from '@/lib/site'
 import { jobs, CAREERS_EMAIL } from '@/app/careers/jobs'
 
@@ -62,6 +63,10 @@ All roles: ${u('/careers')}
 - Phone: ${CONTACT_PHONE}
 - Address: ${addr}
 - [Contact customer support](${u('/contact-support')})
+
+## Official social media
+
+${SOCIAL_LINKS.map((s) => `- [${s.label}](${s.href})`).join('\n')}
 
 ## Policies and payments
 
