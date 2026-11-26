@@ -53,7 +53,7 @@ ${LEGAL_NAME} (SRPL) is headquartered in Bangalore (Bengaluru), India, and works
 
 ${jobs.length} open ${jobs.length === 1 ? 'role' : 'roles'}. Apply by email to ${CAREERS_EMAIL}.
 
-${jobs.map((j) => `- [${j.title}](${u(`/careers/${j.id}`)}): ${j.location}, ${j.experience}, full-time. Reports to ${j.reportsTo}.`).join('\n')}
+${jobs.map((j) => `- [${j.title}](${u(`/careers/${j.id}`)}): ${[j.location, j.experience].filter(Boolean).join(', ')}, full-time. Reports to ${j.reportsTo}.`).join('\n')}
 
 All roles: ${u('/careers')}
 

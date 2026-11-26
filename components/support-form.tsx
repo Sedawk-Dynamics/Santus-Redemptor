@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -14,8 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { submitForm } from '@/lib/web3forms'
-import { FormCaptcha, type HCaptcha } from '@/components/form-captcha'
+import { submitForm, formStartedAt } from '@/lib/web3forms'
 
 const helpTopics = [
   { label: 'Order or access', value: 'order-access' },
@@ -34,17 +33,13 @@ export function SupportForm() {
   const [error, setError] = useState('')
   const [topic, setTopic] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
-  const [captchaToken, setCaptchaToken] = useState('')
-  const captchaRef = useRef<HCaptcha>(null)
+  // When the form appeared; part of the invisible spam check in lib/web3forms.ts.
+  const [startedAt] = useState(formStartedAt)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (!topic) {
       setError('Please choose what you need help with.')
-      return
-    }
-    if (!captchaToken) {
-      setError('Please complete the captcha check.')
       return
     }
     setError('')
@@ -65,15 +60,12 @@ export function SupportForm() {
         topic: label,
         message: get('message'),
         botcheck: data.get('botcheck') === 'on',
-      }, captchaToken)
+      }, startedAt)
       setSubmitted(true)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Your request could not be sent.')
     } finally {
       setSubmitting(false)
-      // hCaptcha tokens are single-use.
-      captchaRef.current?.resetCaptcha()
-      setCaptchaToken('')
     }
   }
 
@@ -151,8 +143,6 @@ export function SupportForm() {
           <FieldLabel htmlFor="message">Message *</FieldLabel>
           <Textarea id="message" name="message" required rows={5} placeholder="Tell us how we can help" />
         </Field>
-
-        <FormCaptcha ref={captchaRef} onToken={setCaptchaToken} />
 
         {error && (
           <p className="text-sm text-crimson" role="alert" style={{ fontFamily: 'var(--font-body)' }}>

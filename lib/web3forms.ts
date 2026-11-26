@@ -39,10 +39,26 @@ function clean(key: string, value: string | boolean): string | boolean {
   return v.trim().slice(0, MAX_LINE)
 }
 
-export async function submitForm(fields: FormFields, captchaToken: string): Promise<void> {
-  if (!captchaToken) {
-    throw new Error('Please complete the captcha check.')
-  }
+/**
+ * Spam protection, all invisible to visitors (no captcha: its image puzzles
+ * were turning real people away):
+ * - Honeypot: `botcheck` is a hidden checkbox people never see; bots tick it.
+ * - Time trap: no person completes the form within MIN_FILL_MS of it appearing.
+ * - Web3Forms screens every submission for spam, and the free plan only
+ *   accepts submissions sent from a browser.
+ * A submission caught by the first two is dropped but reported as sent, so a
+ * bot gets no signal to adapt to.
+ * If spam gets through, the next step is an invisible check such as
+ * Cloudflare Turnstile, which usually needs no puzzle at all.
+ */
+const MIN_FILL_MS = 3000
+
+/** Call when the form is first shown; pass the result to submitForm. */
+export const formStartedAt = () => Date.now()
+
+export async function submitForm(fields: FormFields, startedAt: number): Promise<void> {
+  if (fields.botcheck === true || Date.now() - startedAt < MIN_FILL_MS) return
+
   const cleaned = Object.fromEntries(
     Object.entries(fields).map(([k, v]) => [k, clean(k, v)]),
   ) as FormFields
@@ -58,8 +74,6 @@ export async function submitForm(fields: FormFields, captchaToken: string): Prom
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         ...cleaned,
-        // Sent as-is: the token is long and must not be cleaned or truncated.
-        'h-captcha-response': captchaToken,
         access_key: ACCESS_KEY,
         from_name: 'Sanctus Redemptor website',
       }),

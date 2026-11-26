@@ -21,18 +21,15 @@ const GOOGLE = [
   'https://www.google.com',
 ]
 
-// hCaptcha on the contact and support forms (components/form-captcha.tsx).
-const HCAPTCHA = ['https://hcaptcha.com', 'https://*.hcaptcha.com']
-
 const csp = [
   `default-src 'self'`,
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ''}${[...GOOGLE, ...HCAPTCHA].join(' ')}`,
-  `style-src 'self' 'unsafe-inline' https://www.googletagmanager.com ${HCAPTCHA.join(' ')}`,
+  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ''}${GOOGLE.join(' ')}`,
+  `style-src 'self' 'unsafe-inline' https://www.googletagmanager.com`,
   `img-src 'self' data: blob: https:`,
   `font-src 'self' data:`,
   // Web3Forms receives the contact and support forms.
-  `connect-src 'self' https://api.web3forms.com ${[...GOOGLE, ...HCAPTCHA].join(' ')}`,
-  `frame-src https://www.googletagmanager.com ${HCAPTCHA.join(' ')}`,
+  `connect-src 'self' https://api.web3forms.com ${GOOGLE.join(' ')}`,
+  `frame-src https://www.googletagmanager.com`,
   `object-src 'none'`,
   `base-uri 'self'`,
   `form-action 'self'`,

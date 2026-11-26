@@ -50,7 +50,7 @@ function JobCard({ job, index }: { job: Job; index: number }) {
               className="mt-3 text-ink-muted"
               style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}
             >
-              {job.location} &nbsp;·&nbsp; {job.experience}
+              {[job.location, job.experience].filter(Boolean).join('  ·  ')}
             </p>
           </div>
           <span

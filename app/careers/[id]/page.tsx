@@ -25,10 +25,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const job = findJob((await params).id)
   if (!job) return {}
   return pageMetadata({
-    title: `${job.title} – Job in ${job.location.split(',')[0]}`,
+    title: job.remote
+      ? `${job.title} – Remote Job`
+      : `${job.title} – Job in ${job.location.split(',')[0]}`,
     path: `/careers/${job.id}`,
     // Kept short so Google shows it whole (~160 characters).
-    description: `Full-time ${job.title} job at Sanctus Redemptor, ${job.location}. ${job.experience} experience. Read the full role description and apply.`,
+    description: `Full-time ${job.title} job at Sanctus Redemptor, ${job.location}.${job.experience ? ` ${job.experience} experience.` : ''} Read the full role description and apply.`,
   })
 }
 
@@ -67,7 +69,7 @@ export default async function JobPage({ params }: { params: Promise<{ id: string
           className="mt-4 text-ink-muted"
           style={{ fontFamily: 'var(--font-body)', fontSize: '1rem' }}
         >
-          {job.location} &nbsp;·&nbsp; {job.experience}
+          {[job.location, job.experience].filter(Boolean).join('  ·  ')}
         </p>
         <div className="section-line mt-6 mb-4" />
 

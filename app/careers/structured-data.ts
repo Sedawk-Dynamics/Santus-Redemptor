@@ -40,10 +40,11 @@ export function jobPostingLd(job: Job) {
       logo: `${SITE_URL}/logo.png`,
     },
     jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', ...ADDRESS } },
+    ...(job.remote && { jobLocationType: 'TELECOMMUTE' }),
     applicantLocationRequirements: { '@type': 'Country', name: 'India' },
     directApply: false,
     educationRequirements: job.education,
-    experienceRequirements: job.experience,
+    ...(job.experience && { experienceRequirements: job.experience }),
     industry: 'Technology, media and publishing',
   }
 }

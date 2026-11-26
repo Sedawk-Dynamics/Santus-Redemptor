@@ -3,8 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react'
-import { submitForm } from '@/lib/web3forms'
-import { FormCaptcha, type HCaptcha } from '@/components/form-captcha'
+import { submitForm, formStartedAt } from '@/lib/web3forms'
 
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -34,8 +33,8 @@ export function Contact() {
   const [contact, setContact] = useState<'email' | 'phone'>('email')
   const [error, setError] = useState('')
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
-  const [captchaToken, setCaptchaToken] = useState('')
-  const captchaRef = useRef<HCaptcha>(null)
+  // When the form appeared; part of the invisible spam check in lib/web3forms.ts.
+  const [startedAt, setStartedAt] = useState(formStartedAt)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -45,10 +44,6 @@ export function Contact() {
 
     if (!selected) {
       setError('Please choose a service area of interest.')
-      return
-    }
-    if (!captchaToken) {
-      setError('Please complete the captcha check.')
       return
     }
     setError('')
@@ -65,18 +60,15 @@ export function Contact() {
         preferred_contact_method: contact,
         message: get('message'),
         botcheck: data.get('botcheck') === 'on',
-      }, captchaToken)
+      }, startedAt)
       form.reset()
       setSelected('')
       setContact('email')
       setStatus('sent')
+      setStartedAt(formStartedAt())
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Your enquiry could not be sent.')
       setStatus('idle')
-    } finally {
-      // hCaptcha tokens are single-use.
-      captchaRef.current?.resetCaptcha()
-      setCaptchaToken('')
     }
   }
 
@@ -217,8 +209,6 @@ export function Contact() {
                       ))}
                     </div>
                   </div>
-
-                  <FormCaptcha ref={captchaRef} onToken={setCaptchaToken} />
 
                   {error && (
                     <p className="text-sm text-crimson" style={{ fontFamily: 'var(--font-body)' }} role="alert">

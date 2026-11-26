@@ -45,7 +45,7 @@ export function JobDetails({ job, headingLevel: H = 'h4' }: { job: Job; headingL
     { icon: MapPin, label: 'Location', value: job.location },
     { icon: Clock, label: 'Work arrangement', value: job.arrangement },
     { icon: GraduationCap, label: 'Education', value: job.education },
-  ]
+  ].filter((f) => f.value)
 
   return (
     <>
@@ -100,6 +100,7 @@ export function JobDetails({ job, headingLevel: H = 'h4' }: { job: Job; headingL
       <Bullets as={H} title="Key responsibilities" items={job.responsibilities} />
       <Bullets as={H} title="Must-have skills" items={job.mustHave} />
       <Bullets as={H} title="Nice to have" items={job.niceToHave} />
+      {job.benefits && <Bullets as={H} title="What you'll get" items={job.benefits} />}
 
       {/* How to apply */}
       <div className="p-6 border border-gold/40 bg-surface">
@@ -122,6 +123,15 @@ export function JobDetails({ job, headingLevel: H = 'h4' }: { job: Job; headingL
           </a>
           , using the subject line &ldquo;{job.subject}&rdquo;.
         </p>
+        {job.applyNotes?.map((note) => (
+          <p
+            key={note.slice(0, 40)}
+            className="text-ink-muted leading-relaxed mb-5 -mt-2"
+            style={{ fontFamily: 'var(--font-body)', fontSize: '0.98rem' }}
+          >
+            {note}
+          </p>
+        ))}
         <a
           href={mailto(job)}
           className="group inline-flex items-center gap-2 px-6 py-3 bg-crimson text-white text-xs font-bold tracking-[0.1em] uppercase hover:bg-crimson-light transition-all duration-300"
