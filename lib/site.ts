@@ -10,7 +10,7 @@ export const LEGAL_NAME = 'Sanctus Redemptor Private Limited'
 export const SITE_DESCRIPTION =
   'Sanctus Redemptor Private Limited is a Bangalore-based technology, media and publishing company delivering software and web development, media production and book and digital publishing for corporates, NGOs and educational institutions across India and internationally.'
 
-export const CONTACT_EMAIL = 'office@srplblr.com'
+export const CONTACT_EMAIL = 'info@srplblr.com'
 export const CONTACT_PHONE = '+91 7625088502'
 
 export const ADDRESS = {

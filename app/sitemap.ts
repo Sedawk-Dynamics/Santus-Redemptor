@@ -1,11 +1,14 @@
 import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
+import { jobs } from '@/app/careers/jobs'
 
 /* Add a route here when you add a page. lastModified is left out on purpose:
    Google ignores it unless it is accurate, and a build timestamp is not. */
 const routes: { path: string; priority: number; changeFrequency: 'weekly' | 'monthly' | 'yearly' }[] = [
   { path: '/', priority: 1, changeFrequency: 'monthly' },
   { path: '/careers', priority: 0.8, changeFrequency: 'weekly' },
+  // One entry per open role, so new postings are submitted automatically.
+  ...jobs.map((job) => ({ path: `/careers/${job.id}`, priority: 0.7, changeFrequency: 'weekly' as const })),
   { path: '/contact-support', priority: 0.6, changeFrequency: 'yearly' },
   { path: '/pricing', priority: 0.5, changeFrequency: 'monthly' },
   { path: '/payment', priority: 0.5, changeFrequency: 'yearly' },

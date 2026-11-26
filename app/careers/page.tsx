@@ -5,44 +5,18 @@ import { Footer } from '@/components/footer'
 import { CareersList } from '@/components/careers-list'
 import { JsonLd } from '@/components/json-ld'
 import { pageMetadata } from '@/lib/seo'
-import { ADDRESS, LEGAL_NAME, SITE_URL } from '@/lib/site'
 import { jobs, CAREERS_EMAIL } from './jobs'
+import { breadcrumbLd, jobListLd } from './structured-data'
 
+/* Built from jobs.ts, so the description stays current as roles change.
+   JobPosting markup for Google Jobs lives on each role's page (/careers/[id]). */
 export const metadata = pageMetadata({
-  title: 'Careers',
+  title: 'Careers – Jobs in Bangalore',
   path: '/careers',
-  description:
-    'Open roles at Sanctus Redemptor Private Limited, Bangalore: Manager – Digital Technology & Platforms, Digital Content Lead, and Digital Content & Community Associate.',
+  description: `${jobs.length} open ${jobs.length === 1 ? 'role' : 'roles'} at Sanctus Redemptor, a technology, media and publishing company in Bangalore: ${jobs
+    .map((j) => j.title)
+    .join(', ')}. See the full job descriptions and apply.`,
 })
-
-/* JobPosting structured data so the roles can be picked up by Google Jobs.
-   Google requires datePosted; update it (in jobs.ts) whenever a role is reposted. */
-function jobPostingLd() {
-  const org = {
-    '@type': 'Organization',
-    name: LEGAL_NAME,
-    sameAs: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
-  }
-  const address = { '@type': 'PostalAddress', ...ADDRESS }
-  return {
-    '@context': 'https://schema.org',
-    '@graph': jobs.map((job) => ({
-      '@type': 'JobPosting',
-      title: job.title,
-      description: [...job.overview, ...job.responsibilities].join(' '),
-      datePosted: job.datePosted,
-      url: `${SITE_URL}/careers#${job.id}`,
-      employmentType: 'FULL_TIME',
-      hiringOrganization: org,
-      jobLocation: { '@type': 'Place', address },
-      applicantLocationRequirements: { '@type': 'Country', name: 'India' },
-      directApply: false,
-      educationRequirements: job.education,
-      experienceRequirements: job.experience,
-    })),
-  }
-}
 
 export default function CareersPage() {
   return (
@@ -122,7 +96,8 @@ export default function CareersPage() {
 
       <Footer />
 
-      <JsonLd data={jobPostingLd()} />
+      <JsonLd data={breadcrumbLd([{ name: 'Careers', path: '/careers' }])} />
+      <JsonLd data={jobListLd(jobs)} />
     </div>
   )
 }

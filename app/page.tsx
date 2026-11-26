@@ -49,6 +49,52 @@ const organizationLd = {
       foundingDate: '2025',
       address: { '@type': 'PostalAddress', ...ADDRESS },
       areaServed: ['IN', 'US'],
+      // Mirrors components/services.tsx and components/platforms.tsx.
+      knowsAbout: [
+        'Software development',
+        'Web development',
+        'Mobile app development',
+        'E-commerce development',
+        'Learning management systems',
+        'Video production',
+        'Podcast and audio production',
+        'Book publishing',
+        'Digital publishing',
+        'eBooks and audiobooks',
+        'OTT platforms',
+      ],
+      brand: [
+        'Redacamy',
+        'Redemptio',
+        'Holy Redeemer TV',
+        'Holy Redeemer Voice',
+        'Holy Redeemer Prayer',
+        'Holy Redeemer Store',
+      ].map((name) => ({ '@type': 'Brand', name })),
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Services',
+        itemListElement: [
+          {
+            name: 'Software & Web Development',
+            description:
+              'Custom software, corporate websites, e-commerce, mobile apps, LMS platforms, hosting, IT infrastructure and API integration.',
+          },
+          {
+            name: 'Media Production & Content',
+            description:
+              'Corporate films, documentaries, training and promotional video, photography, editing, VFX, subtitling, voiceover and podcast production.',
+          },
+          {
+            name: 'Book & Digital Publishing',
+            description:
+              'Book layout and typesetting, print production, eBooks, audiobooks, magazines and journals, digital subscriptions and distribution.',
+          },
+        ].map((s) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', ...s, url: `${SITE_URL}/#services` },
+        })),
+      },
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'customer support',

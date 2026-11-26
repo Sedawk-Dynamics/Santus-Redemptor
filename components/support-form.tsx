@@ -27,7 +27,7 @@ const helpTopics = [
   { label: 'Other', value: 'other' },
 ]
 
-const SUPPORT_TO = 'office@srplblr.com'
+const SUPPORT_TO = 'info@srplblr.com'
 
 export function SupportForm() {
   const [submitted, setSubmitted] = useState(false)

@@ -150,7 +150,7 @@ export function Navigation() {
                 <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="mt-6 text-sm text-ink-muted" style={{ fontFamily: 'var(--font-body)' }}>
-                office@srplblr.com &nbsp;·&nbsp; +91 7625088502
+                info@srplblr.com &nbsp;·&nbsp; +91 7625088502
               </p>
             </div>
           </motion.div>

@@ -11,7 +11,7 @@ export const metadata = pageMetadata({
 })
 
 const details = [
-  { Icon: Mail, label: 'Email', value: 'office@srplblr.com', href: 'mailto:office@srplblr.com' },
+  { Icon: Mail, label: 'Email', value: 'info@srplblr.com', href: 'mailto:info@srplblr.com' },
   { Icon: Phone, label: 'Phone', value: '+91 7625088502', href: 'tel:+917625088502' },
   { Icon: Clock, label: 'Business hours', value: 'Monday to Friday, 8:00 AM to 8:00 PM IST' },
   {

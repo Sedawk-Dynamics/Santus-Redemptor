@@ -115,8 +115,8 @@ export default function TermsPage() {
       <PolicySection title="Contact">
         <p>
           For questions about these terms, contact{' '}
-          <a href="mailto:office@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
-            office@srplblr.com
+          <a href="mailto:info@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
+            info@srplblr.com
           </a>
           .
         </p>

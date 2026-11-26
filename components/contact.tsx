@@ -27,7 +27,7 @@ const serviceOptions = [
   'Other',
 ]
 
-const ENQUIRY_TO = 'office@srplblr.com'
+const ENQUIRY_TO = 'info@srplblr.com'
 
 export function Contact() {
   const [selected, setSelected] = useState('')
@@ -115,7 +115,7 @@ export function Contact() {
             {/* Contact details */}
             <div className="space-y-6">
               {[
-                { icon: Mail,   label: 'Email',          value: 'office@srplblr.com',                                       href: 'mailto:office@srplblr.com' },
+                { icon: Mail,   label: 'Email',          value: 'info@srplblr.com',                                       href: 'mailto:info@srplblr.com' },
                 { icon: Phone,  label: 'Phone',          value: '+91 7625088502',                                            href: 'tel:+917625088502' },
                 { icon: MapPin, label: 'Address',        value: 'No. 9/1, Clarke Road, Richards Town,\nBengaluru 560084, Karnataka, India', href: null },
                 { icon: Clock,  label: 'Business Hours', value: 'Mon–Fri, 8:00 AM – 8:00 PM IST',                           href: null },

@@ -53,8 +53,8 @@ export default function ShippingPolicyPage() {
       <PolicySection title="Delivery Support">
         <p>
           For access, delivery or shipping help, contact{' '}
-          <a href="mailto:office@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
-            office@srplblr.com
+          <a href="mailto:info@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
+            info@srplblr.com
           </a>{' '}
           or{' '}
           <a href="tel:+917625088502" className="text-crimson hover:text-crimson-light underline underline-offset-2">

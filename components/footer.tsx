@@ -147,7 +147,7 @@ export function Footer() {
             <div className="space-y-5">
               <div>
                 <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Email</p>
-                <a href="mailto:office@srplblr.com" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>office@srplblr.com</a>
+                <a href="mailto:info@srplblr.com" className="text-ink-muted hover:text-ink transition-colors" style={{ fontFamily: 'var(--font-body)', fontSize: '0.97rem' }}>info@srplblr.com</a>
               </div>
               <div>
                 <p className="text-[0.72rem] text-ink-muted font-bold tracking-wide mb-0.5" style={{ fontFamily: 'var(--font-body)' }}>Phone</p>

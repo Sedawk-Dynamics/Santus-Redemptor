@@ -98,8 +98,8 @@ export default function PrivacyPolicyPage() {
       <PolicySection title="Contact for Privacy Requests">
         <p>
           Email{' '}
-          <a href="mailto:office@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
-            office@srplblr.com
+          <a href="mailto:info@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
+            info@srplblr.com
           </a>{' '}
           with the subject line &apos;Privacy Request&apos;. Include your registered email address and order ID, if
           applicable.

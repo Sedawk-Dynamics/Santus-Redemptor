@@ -67,8 +67,8 @@ export default function RefundPolicyPage() {
       <PolicySection title="How to Request a Refund or Cancellation">
         <p>
           Email{' '}
-          <a href="mailto:office@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
-            office@srplblr.com
+          <a href="mailto:info@srplblr.com" className="text-crimson hover:text-crimson-light underline underline-offset-2">
+            info@srplblr.com
           </a>{' '}
           with your full name, order ID, Razorpay/payment ID, registered email address, phone number and reason for
           request.
@@ -84,7 +84,7 @@ export default function RefundPolicyPage() {
 
       <PolicySection title="Support Contact">
         <p>
-          office@srplblr.com | +91 7625088502 | No. 9/1, Clarke Road, Richards Town, Bengaluru 560084, Karnataka, India.
+          info@srplblr.com | +91 7625088502 | No. 9/1, Clarke Road, Richards Town, Bengaluru 560084, Karnataka, India.
         </p>
       </PolicySection>
     </PolicyPage>
